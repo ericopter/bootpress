@@ -1,0 +1,53 @@
+body {
+	position : relative;
+	padding-top : 40px;
+}
+
+body .navbar .brand {
+	float : right;
+}
+
+#site-head {
+	height : 100px;
+	line-height : 100px;
+	background : linear-gradient(45deg, #020031 0%, #323C6D 100%) repeat scroll 0 0 transparent;
+	color : #fff;
+	text-shadow : 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);
+}
+
+#site-head:after {
+	display : block;
+	position : absolute;
+	top : 0;
+	right : 0;
+	bottom : 0;
+	left : 0;
+	background : url('../images/bs-docs-masthead-pattern.png') repeat;
+	content : '';
+}
+
+#content-wrapper {
+	height : 1000px;
+	padding-top : 30px;
+}
+
+.side-bar-nav {
+	width : 190px;
+	margin : 0px 0 0;
+	background : #fff;
+	border : 1px solid #B7B7B7;
+	border-radius : 6px;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.067);
+}
+
+.side-bar-nav.affix {
+	top : 70px;
+}
+
+.side-bar-nav > li:first-child > a {
+	border-radius : 6px 6px 0 0;
+}
+
+.side-bar-nav > li:last-child > a {
+	border-radius : 0 0 6px 6px;
+}
