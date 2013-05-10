@@ -11,10 +11,10 @@ define('INCLUDEPATH', dirname(realpath(__FILE__)) . '/inc/');
 $includeFiles = array(
 	'theme', 
 	'meta', 
-	// 'content',
+	'content',
 	// 'widgets',
 	// 'shortcodes',
-	// 'post-types'
+	'post-types'
 );
 
 // include each of our theme function files

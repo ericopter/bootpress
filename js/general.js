@@ -1,8 +1,8 @@
 $(document).ready(function() {
 	$('#side-nav').affix({
 		offset: {
-			top : 100,
-			bottom : 200
+			top : function() { return $('#site-header').height() },
+			bottom : function() { return $('#site-footer').height() }
 		}
 	});
 });

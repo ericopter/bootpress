@@ -4,7 +4,7 @@
 
 		</div> <!-- end #content-wrapper -->
 
-		<footer id="footer-wrapper">
+		<footer id="site-footer">
 
 		</footer>
 

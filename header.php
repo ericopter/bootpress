@@ -60,11 +60,22 @@
 			
 		</div>
 		
-		<header id="site-head" class="">
+		<header id="site-header" class="">
 			<div class="container">
-				<h1><?php the_title(); ?></h1>
+				<h1>
+					<?php bloginfo('name'); ?>
+				</h1>
+				<p class="lead">
+					<?php bloginfo('description') ?>
+				</p>
 			</div>
 		</header>
+		
+		<?php 
+		if (is_home() || is_front_page()): 
+			get_template_part('part', 'frontpage-slider');
+		endif; 
+		?>
 
 		<div id="content-wrapper">
 			
