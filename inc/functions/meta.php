@@ -262,7 +262,7 @@ function echotheme_styles()
 		// dynamics style sheet for options panel options
 		wp_register_style(
 			'options', 
-			get_template_directory_uri() . '/css/custom_style.php', 
+			get_template_directory_uri() . '/css/options.css.php', 
 			array('style'), 
 			THEME_VERSION, 
 			'screen'
