@@ -209,7 +209,7 @@ function echotheme_styles()
 	// Bootstrap
 	wp_register_style(
 		'bootstrap', 
-		get_template_directory_uri() . '/css/bootstrap.min.css', 
+		get_template_directory_uri() . '/css/bootstrap.css', 
 		null, 
 		THEME_VERSION, 
 		'screen'
@@ -218,7 +218,7 @@ function echotheme_styles()
 	// Bootstrap Responsive
 	wp_register_style(
 		'bootstrap-responsive', 
-		get_template_directory_uri() . '/css/bootstrap-responsive.min.css', 
+		get_template_directory_uri() . '/css/bootstrap-responsive.css', 
 		array('bootstrap'), 
 		THEME_VERSION, 
 		'screen'

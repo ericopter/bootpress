@@ -68,7 +68,7 @@ $count = 0;
 					<a class="carousel-control right" href="#frontpage-carousel" data-slide="next">&rsaquo;</a>
 				</div> <!-- end frontpage-carousel -->
 				<script type="text/javascript">
-					$('#frontpage-carousel').carousel();
+					$('#frontpage-carousel.carousel').carousel();
 				</script>
 		
 			</div> <!-- end .span12 -->

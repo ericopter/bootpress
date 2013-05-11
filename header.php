@@ -91,12 +91,17 @@
 		endif; 
 		?>
 		
+		<?php 
+		// display title bar if we have a title
+		if ($title = get_the_title()): ?>
 		<div id="title-bar">
 			<div class="container">
-				<h1><?php the_title(); ?></h1>
+				<h1><?php echo $title; ?></h1>
 			</div> <!-- end .container -->
 		</div> <!-- end #title-bar -->
-
+		<?php endif; ?>
+		
+		
 		<div id="content-wrapper">
 			
 			<div class="container">

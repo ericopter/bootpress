@@ -74,11 +74,13 @@ body .navbar .brand {
 #frontpage-carousel {
 	border : 1px solid #C1C1C1;
 	border-radius : 3px;
+	box-shadow : 0 2px 7px #999;
 	overflow : hidden;
 }
 
 .carousel-control {
-	top : 50%;
+	top : 47%;
+	margin-top : 0;
 }
 
 .carousel-inner > .item > img, 
@@ -158,4 +160,11 @@ body.title-bar #page-title {
 	background : linear-gradient(0deg, #FFF 0%, #ECECEC 100%) repeat scroll 0 0 transparent;
 	background : -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#ECECEC));
 	border-top : 1px solid #EFEFEF;
+}
+
+@media (max-width: 980px) {
+	body > .navbar .brand {
+		float : left;
+/*		color : #f00;*/
+	}
 }

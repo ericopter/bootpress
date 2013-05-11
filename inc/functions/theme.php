@@ -38,6 +38,7 @@ function echotheme_setup()
 	
 	// define the image theme sizes
 	add_image_size( 'slideshow' , 940, 400, true);
+	// add_image_size( 'slideshow' , 940, 400, true);
 	
 	
 	// define the theme menu areas

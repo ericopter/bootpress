@@ -13,7 +13,7 @@ $includeFiles = array(
 	'meta', 
 	'content',
 	'widgets',
-	// 'shortcodes',
+	'shortcodes',
 	'post-types'
 );
 

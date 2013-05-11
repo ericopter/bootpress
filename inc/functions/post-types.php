@@ -14,7 +14,7 @@ $meta_box_groups = array();
 // Array of custom post type files to include
 $post_types = array(
 	'slideshow',
-	'works',
+	// 'works',
 	'projects',
 	'page'
 );

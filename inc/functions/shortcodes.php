@@ -80,36 +80,15 @@ function absurl_shortcode_func( $atts ){
 add_shortcode( 'absurl', 'absurl_shortcode_func' );
 
 //////////////////////////////////////////////////////////////
-// EchoSlider - IN PROGRESS
+// Carousel Shortcode
 /////////////////////////////////////////////////////////////
-function echotheme_jquerycycle_shortcode( $atts ){
+function echotheme_carousel( $atts ){
 	ob_start();
-	get_template_part('part', 'jquerycycle-gallery');
+	get_template_part('part', 'carousel-gallery');
 	return ob_get_clean();
 }
-add_shortcode( 'jquerycycle', 'echotheme_jquerycycle_shortcode' );
+add_shortcode( 'carousel', 'echotheme_carousel' );
 
-//////////////////////////////////////////////////////////////
-// Flexslider Shortcode
-/////////////////////////////////////////////////////////////
-function echotheme_flexslider_shortcode($atts)
-{
-	ob_start();
-	get_template_part('part', 'flexslider-gallery');
-	return ob_get_clean();
-}
-add_shortcode('flexslider', 'echotheme_flexslider_shortcode');
-
-//////////////////////////////////////////////////////////////
-// Nivoslider Shortcode
-/////////////////////////////////////////////////////////////
-function echotheme_nivoslider_shortcode($atts)
-{
-	ob_start();
-	get_template_part('part', 'nivo-slider');
-	return ob_get_clean();
-}
-add_shortcode('nivoslider', 'echotheme_nivoslider_shortcode');
 
 //////////////////////////////////////////////////////////////
 // Button Shortcode
