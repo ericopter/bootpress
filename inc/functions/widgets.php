@@ -24,84 +24,94 @@ foreach ($widgets as $file) {
 function echotheme_sidebars_init() {
 	
 	register_sidebar(array(
-		'name' => 'Default Sidebar',
-		'id' => 'sidebar',
-		'description' => __('This is the default widget area for the sidebar. This will be displayed if the other sidebars have not been populated with widgets.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
+		'name' => 'Header Sidebar',
+		'id' => 'sidebar_header',
+		'description' => __('This is the widget area for the header. This will be displayed to the right of the site title or logo.', 'echotheme'),
+		'before_widget' => '<div id="%1$s" class="%2$s widget pull-right">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'
 	));
 	
-	register_sidebar(array(
-		'name' => 'Home Page Sidebar',
-		'id' => 'sidebar_home',
-		'description' => __('Widget area for the home page sidebar.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-
-	register_sidebar(array(
-		'name' => 'Page Sidebar',
-		'id' => 'sidebar_pages',
-		'description' => __('Widget area for the sidebar on pages.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-
-	register_sidebar(array(
-		'name' => 'Posts Sidebar',
-		'id' => 'sidebar_posts',
-		'description' => __('Widget area for the sidebar on posts.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-
-	register_sidebar(array(
-		'name' => 'Default Footer',
-		'id' => 'footer_default',
-		'description' => __('This is the default widget area for the footer. This will be displayed if the other footers have not been populated with widgets.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-
-	register_sidebar(array(
-		'name' => 'Home Page Footer',
-		'id' => 'footer_home',
-		'description' => __('Widget area for the footer on the home page.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-
-	register_sidebar(array(
-		'name' => 'Page Footer',
-		'id' => 'footer_pages',	
-		'description' => __('Widget area for the footer on pages.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
-
-	register_sidebar(array(
-		'name' => 'Posts Footer',
-		'id' => 'footer_posts',	
-		'description' => __('Widget area for the footer on posts.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
-		'after_widget' => '</div>',
-		'before_title' => '<h3>',
-		'after_title' => '</h3>'
-	));
+	// register_sidebar(array(
+	// 	'name' => 'Default Sidebar',
+	// 	'id' => 'sidebar',
+	// 	'description' => __('This is the default widget area for the sidebar. This will be displayed if the other sidebars have not been populated with widgets.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
+	// 
+	// register_sidebar(array(
+	// 	'name' => 'Home Page Sidebar',
+	// 	'id' => 'sidebar_home',
+	// 	'description' => __('Widget area for the home page sidebar.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
+	// 
+	// register_sidebar(array(
+	// 	'name' => 'Page Sidebar',
+	// 	'id' => 'sidebar_pages',
+	// 	'description' => __('Widget area for the sidebar on pages.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
+	// 
+	// register_sidebar(array(
+	// 	'name' => 'Posts Sidebar',
+	// 	'id' => 'sidebar_posts',
+	// 	'description' => __('Widget area for the sidebar on posts.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s widget sidebarBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
+	// 
+	// register_sidebar(array(
+	// 	'name' => 'Default Footer',
+	// 	'id' => 'footer_default',
+	// 	'description' => __('This is the default widget area for the footer. This will be displayed if the other footers have not been populated with widgets.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
+	// 
+	// register_sidebar(array(
+	// 	'name' => 'Home Page Footer',
+	// 	'id' => 'footer_home',
+	// 	'description' => __('Widget area for the footer on the home page.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
+	// 
+	// register_sidebar(array(
+	// 	'name' => 'Page Footer',
+	// 	'id' => 'footer_pages',	
+	// 	'description' => __('Widget area for the footer on pages.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
+	// 
+	// register_sidebar(array(
+	// 	'name' => 'Posts Footer',
+	// 	'id' => 'footer_posts',	
+	// 	'description' => __('Widget area for the footer on posts.', 'echotheme'),
+	// 	'before_widget' => '<div id="%1$s" class="%2$s four columns widget footerBox widgetBox">',
+	// 	'after_widget' => '</div>',
+	// 	'before_title' => '<h3>',
+	// 	'after_title' => '</h3>'
+	// ));
 	
 	
 	

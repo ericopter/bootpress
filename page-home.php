@@ -2,13 +2,12 @@
 /*
 	Template Name: Home Page
 */
-
-get_header();
 the_post();
+get_header();
 ?>
 <!-- page-home.php -->
 <div class="span12">
-	<h1>
+	<h1 id="page-title">
 		<?php the_title(); ?>
 	</h1>
 	

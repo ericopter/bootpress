@@ -21,20 +21,25 @@
 		?>
 	<!-- Website by http://www.echowebdynamics.com -->
 	</head>
-	<body>
+	<?php
+	// build custom body classes
+	$bodyClasses = '';
+	
+	if (function_exists('of_get_option')) {
+		$bodyClasses .= of_get_option('site-title-bar') ? 'title-bar ' : null;
+	}
+	?>
+	<body class="<?php echo $bodyClasses; ?>">
 			
 		<div class="navbar navbar-fixed-top navbar-inverse">
-			
 			<div class="navbar-inner">
-				
 				<div class="container">
-					
 					<button class="btn btn-navbar collapsed" data-target=".nav-collapse" data-toggle="collapse" type="button">
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="brand" href="/bootpress">BootPress</a>
+					<a class="brand" href="<?php bloginfo('url'); ?>/"><?php bloginfo('name'); ?></a>
 					<?php
 					// Get the top menu
 					$args = array(
@@ -55,19 +60,28 @@
 					?>
 					
 				</div>
-				
 			</div>
-			
 		</div>
 		
-		<header id="site-header" class="">
+		<header id="site-header">
 			<div class="container">
-				<h1>
-					<?php bloginfo('name'); ?>
-				</h1>
-				<p class="lead">
-					<?php bloginfo('description') ?>
-				</p>
+				<div class="row">
+					<div id="site-branding" class="span6">
+						<h1>
+							<a href="<?php bloginfo('url'); ?>">
+								<?php bloginfo('name'); ?>
+							</a>
+						</h1>
+						<p class="lead">
+							<?php bloginfo('description') ?>
+						</p>
+					</div> <!-- end .span6 -->
+
+					<div class="span6">
+						<?php if (is_active_sidebar('sidebar_header')) dynamic_sidebar('sidebar_header');?>
+					</div> <!-- end .span6 -->
+				</div> <!-- end .row -->
+				
 			</div>
 		</header>
 		
@@ -76,6 +90,12 @@
 			get_template_part('part', 'frontpage-slider');
 		endif; 
 		?>
+		
+		<div id="title-bar">
+			<div class="container">
+				<h1><?php the_title(); ?></h1>
+			</div> <!-- end .container -->
+		</div> <!-- end #title-bar -->
 
 		<div id="content-wrapper">
 			

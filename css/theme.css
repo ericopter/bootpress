@@ -6,11 +6,23 @@ body {
 	padding-top : 40px;
 }
 
+.no-display {
+	position 		: absolute;
+    left 			: -9999px;
+    width 			: 1em;
+    overflow 		: hidden;
+}
+
 /*
 	Top navigation
 */
+.navbar-fixed-top {
+	position : fixed;
+	margin-bottom: 0;
+}
+
 body .navbar .brand {
-/*	float : right;*/
+	float : right;
 }
 
 
@@ -19,8 +31,7 @@ body .navbar .brand {
 */
 #site-header {
 	position : relative;
-/*	height : 450px;	*/
-/*	line-height : 100px;*/
+	padding : 25px 0;
 	background : #2F3D78;
 	background : linear-gradient(45deg, #020031 0%, #424E91 100%) repeat scroll 0 0 transparent;
 	background : -webkit-gradient(linear, left bottom, right top, from(#020031), to(#424E91));
@@ -40,13 +51,22 @@ body .navbar .brand {
 	opacity : 0.5;
 }
 
+#site-branding {
+	position : relative;
+	z-index : 2;
+}
+#site-branding h1 a {
+	color : inherit;
+	text-decoration : none;
+}
+
 /*
 	Frontpage Slider	
 */
 #slideshow-wrapper {
 	padding : 20px 0 0;
-/*	background : #EFEFEF;*/
-	background : linear-gradient(180deg, #F4F4F4 0%, #E2E2E2 100%) ;
+	background : linear-gradient(180deg, #F4F4F4 15%, #D2D2D2 50%, #F4F4F4 95%);
+/*	background : #fff;*/
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #CFCFCF;
 }
@@ -66,6 +86,21 @@ body .navbar .brand {
   width: 100%;
 }
 
+/*
+	Title Bar
+*/
+#title-bar {
+	display : none;
+	padding : 10px 0;
+/*	background : linear-gradient(45deg, #020031 0%, #424E91 100%) repeat scroll 0 0 transparent;*/
+	background : #0F0B39;
+	border-top : 1px solid #8F8F8F;
+	color : #fff;
+}
+
+body.title-bar #title-bar {
+	display : block;
+}
 
 /*
 	Content General
@@ -75,6 +110,13 @@ body .navbar .brand {
 	padding : 30px 0 50px;
 	border-top : 1px solid #8F8F8F;
 	border-bottom : 1px solid #B1B1B1;
+}
+
+.title-bar #content-wrapper {
+	border-top : none;
+}
+body.title-bar #page-title {
+	display : none;
 }
 
 

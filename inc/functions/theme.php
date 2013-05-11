@@ -37,11 +37,7 @@ function echotheme_setup()
 	add_theme_support( 'post-thumbnails' );
 	
 	// define the image theme sizes
-	// add_image_size( 'fours', 200, 150, true );
-	// add_image_size( 'one-third', 300, 225, true );
-	// add_image_size( 'two-thirds', 620, 465, true );
 	add_image_size( 'slideshow' , 940, 400, true);
-	// add_image_size( 'gallery', 720, 405, true);
 	
 	
 	// define the theme menu areas

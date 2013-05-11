@@ -35,7 +35,8 @@ function optionsframework_options() {
 	******************************************************/
 	$optionsArr = array(
 		'site' => array(
-			'responsive'
+			'responsive',
+			'title-bar',
 		),
 	);
 	
@@ -45,7 +46,8 @@ function optionsframework_options() {
 	$defaults = array(
 		'site' => array(
 			'responsive' => 0,
-		)
+			'title-bar'		=> 0,
+		),
 	);
 /////////////////////////////////////////////////////////////////////////////////////////////	
 	$options = array();
@@ -78,7 +80,14 @@ function optionsframework_options() {
 		'type' 	=> 'checkbox',
 		'id' 	=> 'site-responsive',
 		'std'	=> $defaults['site']['responsive'],
-		// 'class'	=> ''
+	);
+	
+	$options[] = array(
+		'name' 	=> __('Title Bar', 'echotheme'),
+		'desc'	=> __('Display page titles in full width bar?', 'echotheme'),
+		'type' 	=> 'checkbox',
+		'id' 	=> 'site-title-bar',
+		'std'	=> $defaults['site']['title-bar'],
 	);
 	
 	/******************************************************
