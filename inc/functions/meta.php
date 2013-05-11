@@ -69,7 +69,7 @@ function echotheme_meta_tags()
 	
 	// if $description isn't null, output meta tag
 	if ($description) {
-		echo '<meta name="description" content="' . $description . '">' . "\n";
+		echo '<meta name="description" content="' . $description . '">' . "\n\t\t";
 	}
 	
 	// if $keywords isn't null, output meta tag

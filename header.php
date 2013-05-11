@@ -2,12 +2,11 @@
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
-		
 		<?php echotheme_meta_tags(); ?>
 		<link rel="shortcut icon" href="<?php echo ABSURL; ?>images/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>
-			<?php echotheme_title(); ?>
+			<?php echotheme_title(); ?> 
 		</title>
 		<?php
 		
@@ -18,7 +17,7 @@
 		// stuff we wana call after wp_head
 		echotheme_post_wp_head();
 		
-		?>
+		?> 
 	<!-- Website by http://www.echowebdynamics.com -->
 	</head>
 	<?php

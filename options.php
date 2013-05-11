@@ -45,8 +45,9 @@ function optionsframework_options() {
 	******************************************************/
 	$defaults = array(
 		'site' => array(
-			'responsive' => 0,
+			'responsive' 	=> 0,
 			'title-bar'		=> 0,
+			'sidebar-fixed' => 1
 		),
 	);
 /////////////////////////////////////////////////////////////////////////////////////////////	
@@ -75,7 +76,7 @@ function optionsframework_options() {
 	);
 	
 	$options[] = array(
-		'name' 	=> __('Responsive', 'echotheme'),
+		'name' 	=> __('Make Site Responsive', 'echotheme'),
 		'desc'	=> __('Enable site resizing based on browser width?', 'echotheme'),
 		'type' 	=> 'checkbox',
 		'id' 	=> 'site-responsive',
@@ -83,11 +84,19 @@ function optionsframework_options() {
 	);
 	
 	$options[] = array(
-		'name' 	=> __('Title Bar', 'echotheme'),
+		'name' 	=> __('Show Title Bar', 'echotheme'),
 		'desc'	=> __('Display page titles in full width bar?', 'echotheme'),
 		'type' 	=> 'checkbox',
 		'id' 	=> 'site-title-bar',
 		'std'	=> $defaults['site']['title-bar'],
+	);
+	
+	$options[] = array(
+		'name' 	=> __('Fixed Sidebar', 'echotheme'),
+		'desc'	=> __('Would you like to make the sidebar on pages with a sidebar fixed?', 'echotheme'),
+		'type' 	=> 'checkbox',
+		'id' 	=> 'site-sidebar-fixed',
+		'std'	=> $defaults['site']['sidebar-fixed']
 	);
 	
 	/******************************************************

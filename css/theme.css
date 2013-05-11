@@ -51,10 +51,11 @@ body .navbar .brand {
 	opacity : 0.3;
 }
 
-#site-branding {
+#site-header .span6 {
 	position : relative;
 	z-index : 2;
 }
+
 #site-branding h1 a {
 	color : inherit;
 	text-decoration : none;
