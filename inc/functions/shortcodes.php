@@ -82,13 +82,33 @@ add_shortcode( 'absurl', 'absurl_shortcode_func' );
 //////////////////////////////////////////////////////////////
 // Carousel Shortcode
 /////////////////////////////////////////////////////////////
-function echotheme_carousel( $atts ){
+function echotheme_shortcode_carousel( $atts ){
 	ob_start();
 	get_template_part('part', 'carousel-gallery');
 	return ob_get_clean();
 }
-add_shortcode( 'carousel', 'echotheme_carousel' );
+add_shortcode( 'carousel', 'echotheme_shortcode_carousel' );
 
+//////////////////////////////////////////////////////////////
+// Hero Shortcode
+/////////////////////////////////////////////////////////////
+function echotheme_shortcode_hero($atts, $content = null)
+{
+	// return '<div class="hero-unit">' . do_shortcode($content) . '</div>';
+	return wpautop('<div class="hero-unit">' . do_shortcode($content) . '</div>');
+}
+
+add_shortcode( 'hero', 'echotheme_shortcode_hero' );
+
+//////////////////////////////////////////////////////////////
+// Lead Shortcode
+/////////////////////////////////////////////////////////////
+function echotheme_shortcode_lead($atts, $content = null)
+{
+	return '<p class="lead">' . do_shortcode($content) . '</p>';
+}
+
+add_shortcode( 'lead', 'echotheme_shortcode_lead' );
 
 //////////////////////////////////////////////////////////////
 // Button Shortcode

@@ -40,6 +40,8 @@ function echotheme_setup()
 	add_image_size( 'slideshow' , 940, 400, true);
 	// add_image_size( 'slideshow' , 940, 400, true);
 	
+	remove_filter('the_content', 'wpautop');
+	
 	
 	// define the theme menu areas
 	register_nav_menus(array( 

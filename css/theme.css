@@ -48,7 +48,7 @@ body .navbar .brand {
 	left : 0;
 	background : url('../images/circles.png') repeat top center;
 	content : '';
-	opacity : 0.5;
+	opacity : 0.3;
 }
 
 #site-branding {
@@ -71,7 +71,7 @@ body .navbar .brand {
 	border-bottom: 1px solid #CFCFCF;
 }
 
-#frontpage-carousel {
+.carousel {
 	border : 1px solid #C1C1C1;
 	border-radius : 3px;
 	box-shadow : 0 2px 7px #999;
@@ -94,8 +94,8 @@ body .navbar .brand {
 #title-bar {
 	display : none;
 	padding : 10px 0;
-/*	background : linear-gradient(45deg, #020031 0%, #424E91 100%) repeat scroll 0 0 transparent;*/
-	background : #0F0B39;
+	background : linear-gradient(180deg, #150E57 0%, #0C0830 100%) repeat scroll 0 0 transparent;
+/*	background : #0F0B39;*/
 	border-top : 1px solid #8F8F8F;
 	color : #fff;
 }
