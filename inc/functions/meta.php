@@ -215,29 +215,37 @@ function echotheme_styles()
 		'screen'
 	);
 	
-	/*
-		Check for options panel setting for site responsiveness
-	*/
-	// if (function_exists('of_get_option') && of_get_option('site-responsive')) {
-		wp_register_style(
-			'bootstrap-responsive', 
-			get_template_directory_uri() . '/css/bootstrap-responsive.min.css', 
-			array('bootstrap'), 
-			THEME_VERSION, 
-			'screen'
-		);
-	// }
-	
-	// Theme
+	// Bootstrap Responsive
 	wp_register_style(
-		'theme', 
-		get_template_directory_uri() . '/css/theme.css', 
+		'bootstrap-responsive', 
+		get_template_directory_uri() . '/css/bootstrap-responsive.min.css', 
 		array('bootstrap'), 
 		THEME_VERSION, 
 		'screen'
 	);
 	
-	// Check for options panel, get selected color theme and dynamic stylesheet
+	/*
+		Check for options panel setting for site responsiveness
+		Will use flag to trigger whether to include responsive stylesheet
+	*/
+	$themeDep = 'bootstrap';
+	if (function_exists('of_get_option') && of_get_option('site-responsive')) {
+		$themeDep = 'bootstrap-responsive';
+	}
+	
+	// Theme Base
+	wp_register_style(
+		'theme', 
+		get_template_directory_uri() . '/css/theme.css', 
+		array($themeDep), 
+		THEME_VERSION, 
+		'screen'
+	);
+	
+	/* ** TODO **
+		If options panel is active we are checking for the existence of a color theme setting
+		This is something that will need further implementation
+	*/
 	if (function_exists('of_get_option')) {
 		
 		$color_scheme = of_get_option('color-scheme') ? of_get_option('color-scheme') . '.css' : 'default.css';
@@ -281,20 +289,11 @@ function echotheme_styles()
 		'screen'
 	);
 	
-	// Superfish
+	// Superfish Menus
 	wp_register_style(
 		'superfish', 
 		get_template_directory_uri() . '/inc/scripts/superfish/css/superfish.css',
 		false,
-		THEME_VERSION,
-		'screen'
-	);
-	
-	// Flexslider
-	wp_register_style(
-		'flexslider', 
-		get_template_directory_uri() . '/inc/scripts/flexslider/flexslider.css',
-		null,
 		THEME_VERSION,
 		'screen'
 	);
@@ -305,31 +304,6 @@ function echotheme_styles()
 		get_template_directory_uri() . '/inc/scripts/isotope/style.css', 
 		false, 
 		THEME_VERSION, 
-		'screen'
-	);
-	
-	// jQuery Cycle
-	wp_register_style(
-		'jquery.cycle', 
-		get_template_directory_uri() . '/inc/scripts/cycle/jquery.cycle.css',
-		null,
-		THEME_VERSION,
-		'screen'
-	);
-	
-	// NivoSlider
-	wp_register_style(
-		'nivo.style', 
-		get_template_directory_uri() . '/inc/scripts/nivo-slider/nivo-slider.css',
-		null,
-		THEME_VERSION,
-		'screen'
-	);
-	wp_register_style(
-		'nivo.style.default', 
-		get_template_directory_uri() . '/inc/scripts/nivo-slider/themes/default/default.css', 
-		array('nivo.style'),
-		THEME_VERSION,
 		'screen'
 	);
 	
@@ -403,34 +377,10 @@ function echotheme_scripts()
 		THEME_VERSION
 	);
 	
-	// Flexslider
-	wp_register_script(
-		'flexslider', 
-		get_template_directory_uri() . '/inc/scripts/flexslider/jquery.flexslider-min.js', 
-		array('jquery-easing'),
-		THEME_VERSION
-	);
-	
 	// Isotope
 	wp_register_script(
 		'isotope', 
 		get_template_directory_uri() . '/inc/scripts/isotope/jquery.isotope.min.js', 
-		array('jquery'),
-		THEME_VERSION
-	);
-	
-	// jQuery Cycle
-	wp_register_script(
-		'jquery.cycle', 
-		get_template_directory_uri() . '/inc/scripts/cycle/jquery.cycle.all.js', 
-		array('jquery'),
-		THEME_VERSION
-	);
-	
-	// NivoSlider
-	wp_register_script(
-		'nivo.script', 
-		get_template_directory_uri() . '/inc/scripts/nivo-slider/jquery.nivo.slider.pack.js', 
 		array('jquery'),
 		THEME_VERSION
 	);

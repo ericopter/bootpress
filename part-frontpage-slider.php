@@ -21,15 +21,7 @@ $count = 0;
 					<div class="carousel-inner">
 						<?php while ($slides->have_posts()) :
 							$slides->the_post();
-					
-							if ($count == 0) {
-								$class = 'item active';
-							} else {
-								$class = 'item';
-							}
-					
-							// increment the count
-							$count++;
+							
 							$image = get_the_post_thumbnail($slide->ID, 'slideshow');
 					
 							$display_text = get_meta_box_value('_echotheme_slide_display_value');
@@ -40,10 +32,18 @@ $count = 0;
 								$link = get_meta_box_value('_echotheme_slide_url_value');
 							endif; // end $display
 						?>
-						<div class="<?php echo $class; ?>">
+						<div class="item<?php if ($count == 0) echo ' active'; ?>">
 							<?php 
+							if ($link) : ?>
+							<a href="<?php echo $link ?>">
+							<?php
+							endif;
 							echo $image;
-					
+							
+							if ($link) : ?>
+							</a>
+							<?php
+							endif;
 							if ($display_text): ?>
 							<div class="carousel-caption">
 								<h4><?php echo $title; ?></h4>
@@ -53,6 +53,8 @@ $count = 0;
 						</div>
 				
 						<?php
+							// increment the count
+							$count++;
 						endwhile; ?>
 					</div> <!-- end .carousel-inner -->
 			

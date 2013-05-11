@@ -30,15 +30,30 @@ function optionsframework_options() {
 	// If using image radio buttons, define a directory path
 	$imagepath =  get_template_directory_uri() . '/images/options/';
 	
-	$optionsArr = array();
+	/******************************************************
+	* Option options ;)
+	******************************************************/
+	$optionsArr = array(
+		'site' => array(
+			'responsive'
+		),
+	);
 	
-	$defaults = array();
+	/******************************************************
+	* Defaults
+	******************************************************/
+	$defaults = array(
+		'site' => array(
+			'responsive' => 0,
+		)
+	);
 /////////////////////////////////////////////////////////////////////////////////////////////	
 	$options = array();
 	
+	/******************************************************
+	* Boilerplate
+	******************************************************/
 /*
-	boilerplate
-	
 	$options[] = array(
 		'name' 	=> __('', 'echotheme'),
 		'desc'	=> __('', 'echotheme'),
@@ -49,7 +64,31 @@ function optionsframework_options() {
 		'class'	=> ''
 	);
 */
+	/******************************************************
+	* Site
+	******************************************************/
+	$options[] = array(
+		'name' 	=> __('Site Settings', 'echotheme'),
+		'type' 	=> 'heading',
+	);
 	
+	$options[] = array(
+		'name' 	=> __('Responsive', 'echotheme'),
+		'desc'	=> __('Enable site resizing based on browser width?', 'echotheme'),
+		'type' 	=> 'checkbox',
+		'id' 	=> 'site-responsive',
+		'std'	=> $defaults['site']['responsive'],
+		// 'class'	=> ''
+	);
+	
+	/******************************************************
+	* Slideshow
+	******************************************************/
+	
+	
+	/******************************************************
+	* 
+	******************************************************/
 	return $options;
 }
 

@@ -61,14 +61,20 @@ body .navbar .brand {
 	top : 50%;
 }
 
+.carousel-inner > .item > img, 
+.carousel-inner > .item > a > img {
+  width: 100%;
+}
+
 
 /*
 	Content General
 */
 #content-wrapper {
 	min-height : 500px;
-	padding-top : 30px;
-/*	border-top : 2px solid #8C89C1;*/
+	padding : 30px 0 50px;
+	border-top : 1px solid #8F8F8F;
+	border-bottom : 1px solid #B1B1B1;
 }
 
 
@@ -106,9 +112,8 @@ body .navbar .brand {
 */
 #site-footer {
 	min-height : 200px;
-	margin : 50px 0 0;
 	background : #E6E6E6;
 	background : linear-gradient(0deg, #FFF 0%, #ECECEC 100%) repeat scroll 0 0 transparent;
 	background : -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#ECECEC));
-	border-top : 1px solid #DEDEDE;
+	border-top : 1px solid #EFEFEF;
 }
