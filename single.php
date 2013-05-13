@@ -2,7 +2,7 @@
 get_header();
 ?>
 <!-- single.php -->
-<div id="single" class="span9 <?php echotheme_sidebar_position('content'); ?>">
+<div id="single-template" class="span9 <?php echotheme_sidebar_position('content'); ?>">
 	<?php 
 	while ( have_posts() ) : 
 		the_post(); 

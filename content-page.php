@@ -18,7 +18,7 @@
 			// get the image link url
 			$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
 		?>
-		<div class="post-thumbnail image-frame floatR">
+		<div class="post-thumbnail image-frame pull-right">
 			<a href="<?php echo $image_url[0]; ?>">
 				<?php echo $image; ?>
 			</a>

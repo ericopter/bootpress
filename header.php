@@ -28,7 +28,7 @@
 		$bodyClasses .= of_get_option('site-title-bar') ? 'title-bar ' : null;
 	}
 	?> 
-	<body class="<?php echo $bodyClasses; ?>">
+	<body <?php body_class($bodyClasses); ?>>
 			
 		<div class="navbar navbar-fixed-top navbar-inverse">
 			<div class="navbar-inner">
@@ -92,7 +92,9 @@
 		
 		<?php 
 		// display title bar if we have a title
-		if (of_get_option('site-title-bar') && $title = get_the_title()): ?>
+		if (of_get_option('site-title-bar') && 
+			($title = is_front_page() ? get_bloginfo('description') /* get_the_title()*/ : wp_title(null, false))): 
+		?> 
 		<div id="title-bar">
 			<div class="container">
 				<h1><?php echo $title; ?></h1>

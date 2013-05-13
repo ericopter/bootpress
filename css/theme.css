@@ -89,6 +89,18 @@ body .navbar .brand {
   width: 100%;
 }
 
+.carousel-indicators li {
+	border : 1px solid #ccc;
+}
+
+.carousel-indicators li:hover {
+	cursor : pointer;
+}
+
+.carousel-control:focus {
+	outline : none;
+}
+
 /*
 	Title Bar
 */

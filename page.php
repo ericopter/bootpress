@@ -2,7 +2,7 @@
 get_header();
 ?>
 <!-- page.php -->
-<div class="span9 <?php echotheme_sidebar_position('content'); ?>">
+<div id="page-template" class="span9 <?php echotheme_sidebar_position('content'); ?>">
 	<?php
 	the_post();
 	get_template_part('content', 'page');

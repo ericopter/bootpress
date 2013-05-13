@@ -2,7 +2,7 @@
 get_header();
 ?>
 <!-- author.php -->
-<div id="author" class="span9 <?php echotheme_sidebar_position(); ?>">
+<div id="author-template" class="span9 <?php echotheme_sidebar_position(); ?>">
 	<?php if ( have_posts() ) : ?>
 
 		<?php
