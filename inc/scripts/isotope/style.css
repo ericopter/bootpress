@@ -67,7 +67,7 @@
 .isotope-item.image-frame img,
 .isotope-item img.image-frame {
 	padding : 5px;
-	background : url('../../../images/content-bg.png');
+	background : url('../../../img/content-bg.png');
 	border : 1px solid #ddd;
 	box-shadow : -2px 2px 4px 2px #ccc;
 }

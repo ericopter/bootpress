@@ -37,6 +37,10 @@ function optionsframework_options() {
 		'site' => array(
 			'responsive',
 			'title-bar',
+			'sidebar-position' => array(
+				'left' => $imagepath . '2cl.png',
+				'right' => $imagepath . '2cr.png'
+			),
 		),
 	);
 	
@@ -47,7 +51,8 @@ function optionsframework_options() {
 		'site' => array(
 			'responsive' 	=> 0,
 			'title-bar'		=> 0,
-			'sidebar-fixed' => 1
+			'sidebar-fixed' => 1,
+			'sidebar-position' => 'left'
 		),
 	);
 /////////////////////////////////////////////////////////////////////////////////////////////	
@@ -97,6 +102,15 @@ function optionsframework_options() {
 		'type' 	=> 'checkbox',
 		'id' 	=> 'site-sidebar-fixed',
 		'std'	=> $defaults['site']['sidebar-fixed']
+	);
+	
+	$options[] = array(
+		'name' 	=> __('Sidebar Position', 'echotheme'),
+		'desc'	=> __('Choose which side your sites sidebar will appear on', 'echotheme'),
+		'type' 	=> 'images',
+		'id' 	=> 'site-sidebar-position',
+		'std'	=> $defaults['site']['sidebar-position'],
+		'options' => $optionsArr['site']['sidebar-position']
 	);
 	
 	/******************************************************

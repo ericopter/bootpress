@@ -123,6 +123,7 @@
     clear: both;
   }
   [class*="span"] {
+    position: relative;
     float: left;
     min-height: 1px;
     margin-left: 30px;
@@ -204,6 +205,78 @@
   }
   .offset1 {
     margin-left: 130px;
+  }
+  .push12 {
+    left: 1200px;
+  }
+  .push11 {
+    left: 1100px;
+  }
+  .push10 {
+    left: 1000px;
+  }
+  .push9 {
+    left: 900px;
+  }
+  .push8 {
+    left: 800px;
+  }
+  .push7 {
+    left: 700px;
+  }
+  .push6 {
+    left: 600px;
+  }
+  .push5 {
+    left: 500px;
+  }
+  .push4 {
+    left: 400px;
+  }
+  .push3 {
+    left: 300px;
+  }
+  .push2 {
+    left: 200px;
+  }
+  .push1 {
+    left: 100px;
+  }
+  .pull12 {
+    left: -1200px;
+  }
+  .pull11 {
+    left: -1100px;
+  }
+  .pull10 {
+    left: -1000px;
+  }
+  .pull9 {
+    left: -900px;
+  }
+  .pull8 {
+    left: -800px;
+  }
+  .pull7 {
+    left: -700px;
+  }
+  .pull6 {
+    left: -600px;
+  }
+  .pull5 {
+    left: -500px;
+  }
+  .pull4 {
+    left: -400px;
+  }
+  .pull3 {
+    left: -300px;
+  }
+  .pull2 {
+    left: -200px;
+  }
+  .pull1 {
+    left: -100px;
   }
   .row-fluid {
     width: 100%;
@@ -473,6 +546,7 @@
     clear: both;
   }
   [class*="span"] {
+    position: relative;
     float: left;
     min-height: 1px;
     margin-left: 20px;
@@ -554,6 +628,78 @@
   }
   .offset1 {
     margin-left: 82px;
+  }
+  .push12 {
+    left: 744px;
+  }
+  .push11 {
+    left: 682px;
+  }
+  .push10 {
+    left: 620px;
+  }
+  .push9 {
+    left: 558px;
+  }
+  .push8 {
+    left: 496px;
+  }
+  .push7 {
+    left: 434px;
+  }
+  .push6 {
+    left: 372px;
+  }
+  .push5 {
+    left: 310px;
+  }
+  .push4 {
+    left: 248px;
+  }
+  .push3 {
+    left: 186px;
+  }
+  .push2 {
+    left: 124px;
+  }
+  .push1 {
+    left: 62px;
+  }
+  .pull12 {
+    left: -744px;
+  }
+  .pull11 {
+    left: -682px;
+  }
+  .pull10 {
+    left: -620px;
+  }
+  .pull9 {
+    left: -558px;
+  }
+  .pull8 {
+    left: -496px;
+  }
+  .pull7 {
+    left: -434px;
+  }
+  .pull6 {
+    left: -372px;
+  }
+  .pull5 {
+    left: -310px;
+  }
+  .pull4 {
+    left: -248px;
+  }
+  .pull3 {
+    left: -186px;
+  }
+  .pull2 {
+    left: -124px;
+  }
+  .pull1 {
+    left: -62px;
   }
   .row-fluid {
     width: 100%;
@@ -839,9 +985,11 @@
   [class*="span"],
   .uneditable-input[class*="span"],
   .row-fluid [class*="span"] {
+    left: 0;
     display: block;
     float: none;
     width: 100%;
+    margin-bottom: 10px;
     margin-left: 0;
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;

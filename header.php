@@ -27,7 +27,7 @@
 	if (function_exists('of_get_option')) {
 		$bodyClasses .= of_get_option('site-title-bar') ? 'title-bar ' : null;
 	}
-	?>
+	?> 
 	<body class="<?php echo $bodyClasses; ?>">
 			
 		<div class="navbar navbar-fixed-top navbar-inverse">
@@ -56,7 +56,7 @@
 					if ($menu) {
 						echo $menu;
 					}
-					?>
+					?> 
 					
 				</div>
 			</div>
@@ -85,14 +85,14 @@
 		</header>
 		
 		<?php 
-		if (is_home() || is_front_page()): 
+		if (/*is_home() || */is_front_page()): 
 			get_template_part('part', 'frontpage-slider');
 		endif; 
 		?>
 		
 		<?php 
 		// display title bar if we have a title
-		if ($title = get_the_title()): ?>
+		if (of_get_option('site-title-bar') && $title = get_the_title()): ?>
 		<div id="title-bar">
 			<div class="container">
 				<h1><?php echo $title; ?></h1>

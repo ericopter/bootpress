@@ -114,7 +114,7 @@ function echotheme_content_nav($nav_id = null, $query = null) {
 ?>
 <nav id="<?php echo $nav_id ?>">
 	<div class="nav-previous content-nav">
-		<?php previous_posts_link(__('<span class="meta-nav">&larr;</span> Previous Page', 'echotheme')); ?>
+		<?php previous_posts_link(__('<span class="meta-nav">&larr; Previous Page</span> Previous Page', 'echotheme')); ?>
 		&nbsp;
 	</div>
 	<div class="nav-next content-nav">
@@ -130,9 +130,8 @@ function echotheme_content_nav($nav_id = null, $query = null) {
 function echotheme_post_nav() {
 ?>
 <nav id="nav-single">
-	<h3 class="assistive-text"><?php _e( 'Post navigation', 'echotheme' ); ?></h3>
-	<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav">&larr;</span> Previous', 'twentyeleven' ) ); ?></span>
-	<span class="nav-next"><?php next_post_link( '%link', __( 'Next <span class="meta-nav">&rarr;</span>', 'echotheme' ) ); ?></span>
+	<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav btn btn-mini"><i class="icon-arrow-left"></i> Previous</span>', 'twentyeleven' ) ); ?></span>
+	<span class="nav-next"><?php next_post_link( '%link', __( '<span class="meta-nav btn btn-mini">Next <i class="icon-arrow-right"></i></span>', 'echotheme' ) ); ?></span>
 </nav><!-- #nav-single -->
 <?php
 }
@@ -202,4 +201,19 @@ function echotheme_tag_cloud_args($args) {
 	return $args;
 }
 add_filter( 'widget_tag_cloud_args', 'echotheme_tag_cloud_args' );
+
+/**
+ * Function to generate proper push/pull for sidebar positioning
+ */
+function echotheme_sidebar_position($element = 'content')
+{
+	if ('left' == of_get_option('site-sidebar-position')) {
+		$pushPull = $element == 'content' ? 'push3' : 'pull9';
+		
+		echo $pushPull;
+	}
+	
+	return;
+}
+
 ?>

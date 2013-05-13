@@ -1,3 +1,4 @@
+<div id="side-bar" class="span3 <?php echotheme_sidebar_position('sidebar'); ?>">
 <?php
 $menu_class = 'nav nav-list side-bar-nav';
 
@@ -29,6 +30,10 @@ if (of_get_option('site-sidebar-fixed')) :
 		if ($('#title-bar:visible')) {
 			topHeight += $('#title-bar').outerHeight();
 		};
+		
+		if ($('#slideshow-wrapper')) {
+			topHeight += $('#slideshow-wrapper').outerHeight();
+		};
 
 		$('#side-nav').affix({
 			offset: {
@@ -40,4 +45,5 @@ if (of_get_option('site-sidebar-fixed')) :
 </script>
 <?php
 endif;
-?>
+?> 
+</div>

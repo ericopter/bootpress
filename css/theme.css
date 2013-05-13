@@ -46,7 +46,7 @@ body .navbar .brand {
 	right : 0;
 	bottom : 0;
 	left : 0;
-	background : url('../images/circles.png') repeat top center;
+	background : url('../img/circles.png') repeat top center;
 	content : '';
 	opacity : 0.3;
 }
@@ -162,10 +162,33 @@ body.title-bar #page-title {
 	background : -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#ECECEC));
 	border-top : 1px solid #EFEFEF;
 }
-
-@media (max-width: 980px) {
-	body > .navbar .brand {
-		float : left;
-/*		color : #f00;*/
+/************************************************
+* Responsive - In Progress
+************************************************/
+/*@media (min-width : 1200px) {
+	.side-bar-nav {
+		width : 240px;
 	}
 }
+
+@media  (max-width : 979px) {
+	
+	body > .navbar .brand {
+		float : left;
+	}
+	.side-bar-nav {
+		width : 136px;
+	}
+}
+
+@media (max-width: 767px) {
+	body > .navbar .brand {
+		float : left;
+	}
+	
+	.side-bar-nav {
+		position : relative;
+		top : 0 !important;
+		width : 100%;
+	}
+}*/
