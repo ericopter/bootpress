@@ -6,15 +6,14 @@
 ?>
 <!-- content-page.php -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<h1 class="entry-title">
-			<?php the_title(); ?>
-		</h1>
-	</header><!-- .entry-header -->
+	<?php 
+	// get the page title if appropriate
+	echotheme_page_title(); 
+	?>
 
-	<div class="entry-content">
+	<div class="page-content">
 		<?php
-		if ($image = get_the_post_thumbnail(get_the_ID(), 'medium')) :
+		if ($image = get_the_post_thumbnail(get_the_ID(), 'medium', array('class' => 'img-polaroid'))) :
 			// get the image link url
 			$image_url = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'full');
 		?>
@@ -29,10 +28,12 @@
 		<?php 
 		the_content(); 
 		wp_link_pages(array(
-			'before' => '<div class="page-link"><span>' . __( 'Pages:', 'echotheme' ) . '</span>', 'after' => '</div>'
+			'before' => '<div class="page-link"><span>' . __( 'Pages:', 'echotheme' ) . '</span>', 
+			'after' => '</div>'
 		)); 
 		?>
 	</div><!-- .entry-content -->
+	
 	<footer class="entry-meta">
 		<?php 
 		edit_post_link( __( 'Edit', 'echotheme' ), '<span class="edit-link">', '</span>' ); 

@@ -6,8 +6,8 @@
 ?>
 <!-- content-single.php -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<h1 class="entry-title">
+	<header class="post-header">
+		<h1 class="post-title">
 			<?php the_title(); ?>
 		</h1>
 		

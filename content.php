@@ -11,20 +11,20 @@
 			if ( is_sticky() ) : 
 			?>
 			<hgroup>
-				<h2 class="entry-title">
+				<h2 class="post-title">
 					<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'echotheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 						<?php the_title(); ?>
 					</a>
 				</h2>
 				
-				<h3 class="entry-format">
+				<h3 class="post-format">
 					<?php _e( 'Featured', 'echotheme' ); ?>
 				</h3>
 			</hgroup>
 			<?php 
 			else : 
 			?>
-			<h1 class="entry-title">
+			<h1 class="post-title">
 				<a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'echotheme' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark">
 					<?php the_title(); ?>
 				</a>
@@ -34,7 +34,7 @@
 			
 			if ( 'post' == get_post_type() ) : 
 			?>
-			<div class="entry-meta">
+			<div class="post-meta">
 				<?php echotheme_posted_on(); ?>
 			</div><!-- .entry-meta -->
 			<?php 

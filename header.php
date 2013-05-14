@@ -49,7 +49,7 @@
 						'container_class'	=> 'nav-collapse collapse',
 						'menu_id'			=> 'top-bar',
 						'menu_class'		=> 'nav',
-						'after'				=> '</li><li class="divider-vertical"></li>'
+						'after'				=> '</li><li class="divider-vertical">'
 					);
 					
 					$menu = wp_nav_menu($args);
@@ -65,6 +65,10 @@
 		<header id="site-header">
 			<div class="container">
 				<div class="row">
+					<?php
+					// need to work out dynamic logo
+					// option whether to show text or logo
+					?>
 					<div id="site-branding" class="span6">
 						<h1>
 							<a href="<?php bloginfo('url'); ?>">
@@ -79,29 +83,20 @@
 					<div class="span6">
 						<?php if (is_active_sidebar('sidebar_header')) dynamic_sidebar('sidebar_header');?>
 					</div> <!-- end .span6 -->
+					
 				</div> <!-- end .row -->
-				
 			</div>
 		</header>
 		
 		<?php 
-		if (/*is_home() || */is_front_page()): 
+		// get the homepage slideshow
+		if (is_front_page()): 
 			get_template_part('part', 'frontpage-slider');
 		endif; 
-		?>
 		
-		<?php 
-		// display title bar if we have a title
-		if (of_get_option('site-title-bar') && 
-			($title = is_front_page() ? get_bloginfo('description') /* get_the_title()*/ : wp_title(null, false))): 
+		// get the titlebar if appropriate
+		echotheme_titlebar();
 		?> 
-		<div id="title-bar">
-			<div class="container">
-				<h1><?php echo $title; ?></h1>
-			</div> <!-- end .container -->
-		</div> <!-- end #title-bar -->
-		<?php endif; ?>
-		
 		
 		<div id="content-wrapper">
 			

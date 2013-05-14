@@ -26,7 +26,7 @@ function get_meta_box_value($name) {
 }
 
 function echotheme_posted_on() {
-	printf(__('<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s" pubdate>%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'twentyeleven'),
+	printf(__('<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'twentyeleven'),
 		esc_url(get_permalink()),
 		esc_attr(get_the_time()),
 		esc_attr(get_the_date('c')),
@@ -76,6 +76,17 @@ function echotheme_custom_excerpt_more($output) {
 }
 add_filter('get_the_excerpt', 'echotheme_custom_excerpt_more');
 
+/**
+ * remove_category_rel()
+ * 
+ * remove rel tag causing validation errors
+ */
+function remove_category_rel($output)
+{
+    $output = str_replace(' rel="category tag"', '', $output);
+    return $output;
+}
+add_filter('the_category', 'remove_category_rel');
 
 /**
  * Remove image height property to allow image to scale at original aspect ratio responsively
@@ -216,4 +227,42 @@ function echotheme_sidebar_position($element = 'content')
 	return;
 }
 
+/**
+ * echotheme_titlebar()
+ *
+ * outputs horizontal titlebar if theme options set to do so
+ */
+function echotheme_titlebar()
+{
+	// display title bar if we have a title
+	$titleBar = of_get_option('site-title-bar');
+	$title = is_front_page() ? get_bloginfo('description') /* get_the_title()*/ : wp_title(null, false);
+	if ($titleBar && $title): 
+	?> 
+	<div id="title-bar">
+		<div class="container">
+			<h1><?php echo $title; ?></h1>
+		</div> <!-- end .container -->
+	</div> <!-- end #title-bar -->
+	<?php 
+	endif;
+}
+
+/**
+ * echotheme_page_title()
+ * 
+ * outputs the title for the page if the title bar option is set to no
+ */
+function echotheme_page_title($class = 'page')
+{ 
+	if (!of_get_option('site-title-bar')) :
+?>
+	<header class="">
+		<h1 class="<?php echo $class; ?>-title">
+			<?php the_title(); ?>
+		</h1>
+	</header><!-- .entry-header -->
+<?php
+	endif;
+}
 ?>
