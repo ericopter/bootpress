@@ -6,21 +6,7 @@
 ?>
 <!-- content-single.php -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="post-header">
-		<h1 class="post-title">
-			<?php the_title(); ?>
-		</h1>
-		
-		<?php 
-		if ( 'post' == get_post_type() ) : 
-		?>
-		<div class="entry-meta">
-			<?php echotheme_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php 
-		endif; 
-		?>
-	</header><!-- .entry-header -->
+	<?php echotheme_get_title('post'); ?>
 
 	<div class="entry-content">
 		<?php 

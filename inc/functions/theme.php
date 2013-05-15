@@ -41,6 +41,8 @@ function echotheme_setup()
 	// add_image_size( 'slideshow' , 940, 400, true);
 	
 	remove_filter('the_content', 'wpautop');
+	add_filter( 'the_content', 'wpautop' , 99);
+	add_filter( 'the_excerpt', 'wpautop');
 	
 	
 	// define the theme menu areas

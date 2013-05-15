@@ -8,7 +8,7 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php 
 	// get the page title if appropriate
-	echotheme_page_title(); 
+	echotheme_get_title(); 
 	?>
 
 	<div class="page-content">

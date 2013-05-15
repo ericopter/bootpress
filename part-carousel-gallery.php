@@ -57,5 +57,7 @@ $id = 'carousel-' . $post->ID;
 </div>
 <?php
 endif;
-wp_reset_query();
+
+// do we need this?
+// wp_reset_query();
 ?>

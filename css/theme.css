@@ -134,6 +134,14 @@ body.title-bar #page-title {
 	display : none;
 }
 
+#featured-posts {
+	margin-top : 15px;
+}
+
+
+/*
+	Posts
+*/
 .post-listing{
 	margin : 0 0 25px;
 	padding : 0 0 25px;
@@ -165,6 +173,17 @@ body.title-bar #page-title {
 
 .post-footer {
 	margin : 10px 0 0;
+}
+
+/*
+	Post navigation
+*/
+#nav-single {
+	margin : 0 0 10px;
+}
+
+.nav-next {
+	float : right;
 }
 
 

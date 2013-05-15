@@ -1,8 +1,8 @@
 <?php
 /**
+ * get_custom_value()
+ * 
  * Shortcut to get post custom field
- * @param string $name requested custom field
- * @return string $value
  */
 function get_custom_value($name = null)
 {
@@ -15,9 +15,9 @@ function get_custom_value($name = null)
 }
 
 /**
+ * get_meta_box_value()
+ * 
  * Shortcut to get meta box value
- * @param string $name requested custom field
- * @return string $value
  */
 function get_meta_box_value($name) {
 	global $wp_query, $post;
@@ -25,6 +25,11 @@ function get_meta_box_value($name) {
 	return $value;
 }
 
+/**
+ * echotheme_posted_on()
+ * 
+ * Theme custom posted on info
+ */
 function echotheme_posted_on() {
 	printf(__('<span class="sep">Posted on </span><a href="%1$s" title="%2$s" rel="bookmark"><time class="entry-date" datetime="%3$s">%4$s</time></a><span class="by-author"> <span class="sep"> by </span> <span class="author vcard"><a class="url fn n" href="%5$s" title="%6$s" rel="author">%7$s</a></span></span>', 'twentyeleven'),
 		esc_url(get_permalink()),
@@ -37,12 +42,19 @@ function echotheme_posted_on() {
 	);
 }
 
+/**
+ * echotheme_excerpt_length()
+ * 
+ * Set custom excerpt lenght
+ */
 function echotheme_excerpt_length($length) {
-	return 85;
+	return 35;
 }
 add_filter('excerpt_length', 'echotheme_excerpt_length');
 
 /**
+ * echotheme_continue_reading_link()
+ * 
  * Returns a "Continue Reading" link for excerpts
  */
 function echotheme_continue_reading_link() {
@@ -50,14 +62,18 @@ function echotheme_continue_reading_link() {
 }
 
 /**
+ * echotheme_auto_excerpt_more()
+ * 
  * Replaces Automatically generated "more" links with our custom one
  */
 function echotheme_auto_excerpt_more($more) {
-	return '&hellip; <br />' . echotheme_continue_reading_link();
+	return '&hellip; ' . echotheme_continue_reading_link();
 }
 add_filter('excerpt_more', 'echotheme_auto_excerpt_more');
 
 /**
+ * echotheme_auto_content_more()
+ * 
  * Replaces Automatically generated "more" links with our custom one
  */
 function echotheme_auto_content_more($more) {
@@ -66,6 +82,8 @@ function echotheme_auto_content_more($more) {
 add_filter('the_content_more_link', 'echotheme_auto_content_more');
 
 /**
+ * echotheme_cusom_excerpt_more()
+ * 
  * Adds a pretty "Continue Reading" link to custom post excerpts.
  */
 function echotheme_custom_excerpt_more($output) {
@@ -89,6 +107,8 @@ function remove_category_rel($output)
 add_filter('the_category', 'remove_category_rel');
 
 /**
+ * remove_thumbnail_height()
+ * 
  * Remove image height property to allow image to scale at original aspect ratio responsively
  */
 function remove_thumbnail_height($html) {
@@ -97,6 +117,8 @@ function remove_thumbnail_height($html) {
 }
 
 /**
+ * set_isotope_image_width()
+ * 
  * Replaces image width value based on theme width option
  */
 function set_isotope_image_width($html) {
@@ -112,6 +134,8 @@ function set_isotope_image_width($html) {
 }
 
 /**
+ * echotheme_content_nav()
+ * 
  * Display navigation to next/previous pages when applicable
  */
 function echotheme_content_nav($nav_id = null, $query = null) {
@@ -138,15 +162,26 @@ function echotheme_content_nav($nav_id = null, $query = null) {
 	endif;
 }
 
+/**
+ * echotheme_post_nav()
+ * 
+ * Theme single navigation
+ */
 function echotheme_post_nav() {
 ?>
 <nav id="nav-single">
 	<span class="nav-previous"><?php previous_post_link( '%link', __( '<span class="meta-nav btn btn-mini"><i class="icon-arrow-left"></i> Previous</span>', 'twentyeleven' ) ); ?></span>
 	<span class="nav-next"><?php next_post_link( '%link', __( '<span class="meta-nav btn btn-mini">Next <i class="icon-arrow-right"></i></span>', 'echotheme' ) ); ?></span>
+	<div class="clearfix"></div>
 </nav><!-- #nav-single -->
 <?php
 }
 
+/**
+ * echotheme_comment()
+ * 
+ * Theme custom comment format
+ */
 function echotheme_comment($comment, $args, $depth) {
 	$GLOBALS['comment'] = $comment;
 	switch ($comment->comment_type) :
@@ -171,7 +206,7 @@ function echotheme_comment($comment, $args, $depth) {
 						/* translators: 1: comment author, 2: date and time */
 						printf(__('%1$s on %2$s <span class="says">said:</span>', 'echotheme'),
 							sprintf('<span class="fn">%s</span>', get_comment_author_link()),
-							sprintf('<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+							sprintf('<a href="%1$s"><time datetime="%2$s">%3$s</time></a>',
 								esc_url(get_comment_link($comment->comment_ID)),
 								get_comment_time('c'),
 								/* translators: 1: date, 2: time */
@@ -196,24 +231,35 @@ function echotheme_comment($comment, $args, $depth) {
 				<?php comment_reply_link(array_merge($args, array('reply_text' => __('Reply <span>&darr;</span>', 'echotheme'), 'depth' => $depth, 'max_depth' => $args['max_depth']))); ?>
 			</div><!-- .reply -->
 		</article><!-- #comment-## -->
-	</li>
+		<!-- WP adds closing li -->
 	<?php
 			break;
 	endswitch;
 }
 
 /**
+ * echotheme_tag_cloud_args()
+ * 
  * Filter to alter the tag cloud font sizes
  */
 function echotheme_tag_cloud_args($args) {
-	// $args['largest'] = 19; //largest tag
-	// $args['smallest'] = 11; //smallest tag
-	$args['unit'] = 'px'; //tag font unit
+	//largest tag
+	// $args['largest'] = 19; 
+	
+	//smallest tag
+	// $args['smallest'] = 11; 
+	
+	//tag font unit
+	$args['unit'] = 'px'; 
+	
 	return $args;
 }
+
 add_filter( 'widget_tag_cloud_args', 'echotheme_tag_cloud_args' );
 
 /**
+ * echotheme_sidebar_position()
+ * 
  * Function to generate proper push/pull for sidebar positioning
  */
 function echotheme_sidebar_position($element = 'content')
@@ -253,15 +299,25 @@ function echotheme_titlebar()
  * 
  * outputs the title for the page if the title bar option is set to no
  */
-function echotheme_page_title($class = 'page')
+function echotheme_get_title($class = 'page')
 { 
 	if (!of_get_option('site-title-bar')) :
 ?>
-	<header class="">
+	<header class="page-header">
 		<h1 class="<?php echo $class; ?>-title">
 			<?php the_title(); ?>
 		</h1>
-	</header><!-- .entry-header -->
+		
+		<?php 
+		if ( 'post' == get_post_type() ) : 
+		?>
+		<div class="<?php echo $class; ?>-meta">
+			<?php echotheme_posted_on(); ?>
+		</div><!-- .<?php echo $class; ?>-meta -->
+		<?php 
+		endif; 
+		?>
+	</header><!-- .<?php echo $class; ?>-header -->
 <?php
 	endif;
 }

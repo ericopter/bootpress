@@ -7,7 +7,7 @@
 ?>
 <article class="post-listing media">
 	<?php if (has_post_thumbnail()): ?>
-	<a href="<?php the_permalink() ?>" rel="bookmark" class="pull-left">
+	<a href="<?php the_permalink() ?>" rel="bookmark" class="pull-right">
 		<?php the_post_thumbnail('thumbnail', array('class' => ' img-polaroid')); ?>
 	</a>
 	<?php endif; ?>
@@ -62,13 +62,12 @@
 
 		<div class="post-content">
 			<?php
-			if (is_search()) {
-				the_excerpt();
-			} else {
-				the_content( __( 'Continue reading <span class="meta-nav">&rarr;</span>', 'echotheme' ) ); 
+			the_excerpt();
 
-				wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'echotheme' ) . '</span>', 'after' => '</div>' ) );
-			}
+			wp_link_pages( array( 
+				'before' => '<div class="page-link"><span>' . __( 'Pages:', 'echotheme' ) . '</span>', 
+				'after' => '</div>' 
+			) );
 			?>
 		</div>
 
