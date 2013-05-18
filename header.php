@@ -3,13 +3,15 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<?php echotheme_meta_tags(); ?>
-		<link rel="shortcut icon" href="<?php echo ABSURL; ?>images/favicon.ico" />
+		<link rel="shortcut icon" href="<?php echo ABSURL; ?>img/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>
 			<?php echotheme_title(); ?> 
 		</title>
 		<?php
-		
+		/*
+			??Might want to revisit if the pre/post stuff is necessary anymore??
+		*/
 		// stuff we wanna call before wp_head
 		echotheme_pre_wp_head();
 		// call the wp_head stuff
@@ -20,15 +22,7 @@
 		?> 
 	<!-- Website by http://www.echowebdynamics.com -->
 	</head>
-	<?php
-	// build custom body classes
-	$bodyClasses = '';
-	
-	if (function_exists('of_get_option')) {
-		$bodyClasses .= of_get_option('site-title-bar') ? 'title-bar ' : null;
-	}
-	?> 
-	<body <?php body_class($bodyClasses); ?>>
+	<body <?php body_class(); ?>>
 			
 		<div class="navbar navbar-fixed-top navbar-inverse">
 			<div class="navbar-inner">

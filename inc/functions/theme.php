@@ -38,7 +38,7 @@ function echotheme_setup()
 	
 	// define the image theme sizes
 	add_image_size( 'slideshow' , 940, 400, true);
-	// add_image_size( 'slideshow' , 940, 400, true);
+	add_image_size( 'featured' , 600, 400, true);
 	
 	remove_filter('the_content', 'wpautop');
 	add_filter( 'the_content', 'wpautop' , 99);

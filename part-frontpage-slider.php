@@ -1,4 +1,13 @@
 <?php
+/**
+ * Get the slideshow custom post type for displaying homepage carousel
+ */
+
+// exit if settings dictate so
+if (!of_get_option('homepage-slideshow')) {
+	return;
+}
+
 $args = array(
 	'post_type' => 'echotheme_slideshow',
 	'posts_per_page' => -1,
@@ -10,8 +19,10 @@ $slides = new WP_Query($args);
 if (!$slides->have_posts()) {
 	return;
 }
+
 // create a counter
 $count = 0;
+
 ?>
 <div id="slideshow-wrapper">
 	<div class="container">
@@ -74,5 +85,5 @@ $count = 0;
 			</div> <!-- end .span12 -->
 		</div> <!-- end .row -->
 	</div>
-</div> <!-- end #frontpage-slider -->
+</div> <!-- end #slideshow-wrapper -->
 <?php wp_reset_query(); ?>

@@ -161,8 +161,8 @@ function echotheme_load_shadowbox()
 function echotheme_load_isotope()
 {
 	// isotope
-	wp_enqueue_script('isotope');
 	wp_enqueue_style('isotope');
+	wp_enqueue_script('isotope');
 }
 /**
  * Function to load Flexslider assets

@@ -28,7 +28,7 @@ function optionsframework_option_name() {
 function optionsframework_options() {
 	
 	// If using image radio buttons, define a directory path
-	$imagepath =  get_template_directory_uri() . '/images/options/';
+	$imagepath =  get_template_directory_uri() . '/img/options/';
 	
 	/******************************************************
 	* Option options ;)
@@ -53,6 +53,9 @@ function optionsframework_options() {
 			'title-bar'		=> 0,
 			'sidebar-fixed' => 1,
 			'sidebar-position' => 'left'
+		),
+		'homepage' => array(
+			'slideshow' => 1
 		),
 	);
 /////////////////////////////////////////////////////////////////////////////////////////////	
@@ -114,8 +117,20 @@ function optionsframework_options() {
 	);
 	
 	/******************************************************
-	* Slideshow
+	* Homepage
 	******************************************************/
+	$options[] = array(
+		'name' 	=> __('Homepage', 'echotheme'),
+		'type' 	=> 'heading',
+	);
+	
+	$options[] = array(
+		'name' 	=> __('Show Slideshow', 'echotheme'),
+		'desc'	=> __('Display the homepage slideshow?', 'echotheme'),
+		'type' 	=> 'checkbox',
+		'id' 	=> 'homepage-slideshow',
+		'std'	=> $defaults['homepage']['slideshow']
+	);
 	
 	
 	/******************************************************

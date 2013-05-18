@@ -6,26 +6,33 @@
  */
 ?>
 <article class="span4">
-	<?php if (!hes_post_thumbnail()) return; ?>
+	<?php if (!has_post_thumbnail()) return; ?>
 	
 	<div class="thumbnail">
 		<?php if (has_post_thumbnail()): ?>
-		<a href="<?php the_permalink() ?>" rel="bookmark" class="pull-left">
-			<?php the_post_thumbnail('thumbnail'); ?>
+		<a href="<?php the_permalink() ?>" rel="bookmark" class="">
+			<?php the_post_thumbnail('featured'); ?>
 		</a>
 		<?php endif; ?>
-		<header>
+		<div class="caption">
 			<h3 class="post-title">
+				<a href="<?php the_permalink() ?>" rel="bookmark" class="">
 				<?php the_title(); ?>
+				</a>
 			</h3>
+			
+			<?php
+			// wpautop(the_excerpt());
+			
+			?>
+		</div>
+		<header>
+
 			
 		</header>
 
 		<div class="post-content">
-			<?php
-			the_excerpt();
 			
-			?>
 		</div>
 
 	</div> <!-- end #.thumbnail -->

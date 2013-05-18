@@ -60,27 +60,14 @@
 #isotope-portfolio {}
 
 .isotope-item {
-	margin : 5px;
 	text-align : center;
 }
 
 .isotope-item.image-frame img,
-.isotope-item img.image-frame {
-	padding : 5px;
-	background : url('../../../img/content-bg.png');
-	border : 1px solid #ddd;
-	box-shadow : -2px 2px 4px 2px #ccc;
-}
+.isotope-item img.image-frame {}
 
 .isotope-item.image-frame img:hover,
-.isotope-item img.image-frame:hover {
-	box-shadow : -2px 2px 1px #aaa;
-}
+.isotope-item img.image-frame:hover {}
 
 #isotope-filters a.selected,
-#isotope-filters a:hover {
-	background : #aaa;
-	border : 1px solid #888;
-	color : #fafafa;
-	font-weight : 500;
-}
+#isotope-filters a:hover {}

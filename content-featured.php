@@ -4,7 +4,7 @@
  */
 ?>
 <!-- content-featured.php -->
-<article id="post-<?php the_ID(); ?>" <?php post_class('sticky'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('sticky span4'); ?>>
 	
 	<header class="post-header page-header">
 		<h2 class="post-title">
@@ -12,6 +12,7 @@
 				<?php the_title(); ?>
 			</a>
 			<?php
+			/*
 			if (is_sticky()): 
 			?>
 			<small><i>
@@ -19,12 +20,13 @@
 			</i></small>
 			<?php 
 			endif;
+			*/
 			?>
 		</h2>
 		<?php 
 		
-		
-		if ('post' == get_post_type() && false) :
+		/*
+		if ('post' == get_post_type()) :
 		?>
 		<div class="post-meta muted">
 			<?php 
@@ -48,14 +50,23 @@
 		</div> <!-- end #.post-meta -->
 		<?php
 		endif;
-		
+		*/
 		
 		?>
 	</header>
 
 	<div class="post-content">
 		<?php
-		get_template_part('part', 'carousel-gallery');
+		if ($image = get_the_post_thumbnail(get_the_ID(), 'featured')) :
+		?>
+		<div class="post-thumbnail image-frame center">
+			<a href="<?php the_permalink(); ?>">
+				<?php echo $image; ?>
+			</a>
+		</div> <!-- end .post-thumbnail -->
+		<br />
+		<?php
+		endif;
 		
 		the_excerpt(); 
 		

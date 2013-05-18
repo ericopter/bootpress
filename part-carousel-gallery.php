@@ -44,7 +44,7 @@ $id = 'carousel-' . $post->ID;
 	
 	<ol class="carousel-indicators">
 		<?php for ($c = 0; $c < $i; $c++) :?>
-		<li data-target="#frontpage-carousel" data-slide-to="<?php echo $c; ?>"></li>
+		<li data-target="#<?php echo $id; ?>" data-slide-to="<?php echo $c; ?>"></li>
 		<?php endfor; ?>
 	</ol>
 	

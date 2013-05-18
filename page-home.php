@@ -24,12 +24,14 @@ $query = new WP_Query($args);
 if ($query->have_posts() && $sticky[0]) :
 ?>
 <div id="featured-posts" class="span12">
+	<div class="thumbnails">
 	<?php
 		while ($query->have_posts()) :
 			$query->the_post();
-			get_template_part('content', 'featured');
+			get_template_part('content', 'thumbnail');
 		endwhile;
 	?>
+	</div>
 </div> <!-- end #featured-posts -->
 <?php
 endif;

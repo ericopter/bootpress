@@ -51,7 +51,7 @@ body .navbar .brand {
 	opacity : 0.3;
 }
 
-#site-header .span6 {
+#site-header .container {
 	position : relative;
 	z-index : 2;
 }
@@ -67,7 +67,6 @@ body .navbar .brand {
 #slideshow-wrapper {
 	padding : 20px 0 0;
 	background : linear-gradient(180deg, #F4F4F4 15%, #D2D2D2 50%, #F4F4F4 95%);
-/*	background : #fff;*/
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #CFCFCF;
 }
@@ -105,16 +104,10 @@ body .navbar .brand {
 	Title Bar
 */
 #title-bar {
-	display : none;
 	padding : 10px 0;
 	background : linear-gradient(180deg, #150E57 0%, #0C0830 100%) repeat scroll 0 0 transparent;
-/*	background : #0F0B39;*/
 	border-top : 1px solid #8F8F8F;
 	color : #fff;
-}
-
-body.title-bar #title-bar {
-	display : block;
 }
 
 /*
@@ -125,13 +118,6 @@ body.title-bar #title-bar {
 	padding : 30px 0 50px;
 	border-top : 1px solid #8F8F8F;
 	border-bottom : 1px solid #B1B1B1;
-}
-
-.title-bar #content-wrapper {
-	border-top : none;
-}
-body.title-bar #page-title {
-	display : none;
 }
 
 #featured-posts {
@@ -165,10 +151,7 @@ body.title-bar #page-title {
 }
 
 .post-header .post-meta {
-/*	margin : 0 0 15px;*/
-/*	padding : 5px 0;*/
 	font-size : .9em;
-/*	line-height : 20px;*/
 }
 
 .post-footer {
@@ -186,6 +169,18 @@ body.title-bar #page-title {
 	float : right;
 }
 
+/*
+	Projects
+*/
+#skill .thumbnail {
+	opacity : .6;
+	background : #F0F0F0;
+}
+
+#skill .thumbnail:hover {
+	opacity : 1;
+	background : #fff;
+}
 
 /*
 	Sidebar
@@ -226,6 +221,7 @@ body.title-bar #page-title {
 	background : -webkit-gradient(linear, left bottom, left top, from(#FFF), to(#ECECEC));
 	border-top : 1px solid #EFEFEF;
 }
+
 /************************************************
 * Responsive - In Progress
 ************************************************/
