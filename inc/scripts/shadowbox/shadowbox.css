@@ -33,7 +33,12 @@ div.sb-message a:link,div.sb-message a:visited{color:#fff;text-decoration:underl
 /* ///////////////////////////////////////////////////////////////////// 
 //  Echotheme Styles
 /////////////////////////////////////////////////////////////////////*/
+#sb-wrapper-inner, #sb-body {
+	background : #FFF;
+	border-radius : 3px;
+}
+
 #sb-wrapper-inner {
-	border : 2px solid #fff;
+	border : 1px solid #fff;
 	border-radius : 5px;
 }

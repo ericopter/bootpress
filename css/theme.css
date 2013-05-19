@@ -183,6 +183,19 @@ body .navbar .brand {
 }
 
 /*
+	Portfolio Page
+*/
+.isotope-item .caption {
+	margin-top : 5px;
+	border-top : 1px dotted #E9E9E9;
+	font-size : 1.3em;
+}
+
+.isotope-item .caption a {
+	display : block;
+}
+
+/*
 	Sidebar
 */
 #side-bar {
