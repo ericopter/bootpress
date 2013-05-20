@@ -3,6 +3,7 @@ get_header();
 ?>
 <!-- taxonomy-skill.php -->
 <div id="skill" class="span12">
+	<?php echotheme_get_title('post'); ?>
 	<div class="thumbnails">
 	<?php
 	while (have_posts()) {

@@ -46,7 +46,7 @@ body .navbar .brand {
 	right : 0;
 	bottom : 0;
 	left : 0;
-	background : url('../img/circles.png') repeat top center;
+	background : url('../img/stars.png') repeat top center;
 	content : '';
 	opacity : 0.3;
 }
@@ -185,6 +185,9 @@ body .navbar .brand {
 /*
 	Portfolio Page
 */
+#isotope-items {
+	margin-top : 20px;
+}
 .isotope-item .caption {
 	margin-top : 5px;
 	border-top : 1px dotted #E9E9E9;

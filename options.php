@@ -134,8 +134,14 @@ function optionsframework_options() {
 	
 	
 	/******************************************************
-	* 
+	* Portfolio
 	******************************************************/
+	$options[] = array(
+		'name' 	=> __('Portfolio', 'echotheme'),
+		'type' 	=> 'heading'
+	);
+
+	
 	return $options;
 }
 

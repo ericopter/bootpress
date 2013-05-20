@@ -15,11 +15,9 @@
 		</a>
 		<?php endif; ?>
 		<div class="caption">
-			<h3 class="post-title">
 				<a href="<?php the_permalink() ?>" rel="bookmark" class="">
 				<?php the_title(); ?>
 				</a>
-			</h3>
 			
 			<?php
 			// wpautop(the_excerpt());

@@ -2,15 +2,15 @@
 /**
  * Template Name: Portfolio Page
  * 
- * stdClass Object ( [term_id] => 4 [name] => Website Design [slug] => website-design [term_group] => 0 [term_taxonomy_id] => 4 [taxonomy] => skill [description] => [parent] => 0 [count] => 1 ) 
  *
  * @author Eric Akkerman
  */
+
+// Load the shadowbox and isotope resources
 echotheme_load_shadowbox();
 echotheme_load_isotope();
-get_header();
 
-$skills = get_terms('skill');
+get_header();
 ?>
 <!-- page-portfolio.php -->
 <div id="portfolio-page" class="span12">
@@ -21,10 +21,13 @@ $skills = get_terms('skill');
 	?> 
 </div> <!-- end #portfolio-page.span12 -->
 
-<div id="portfolio">
+<div id="isotope-portfolio" class="span12">
 	<?php
+	// get the post type tags, aka get da "skills"!
+	$skills = get_terms('skill');
+
 	// build the filters controls
-	$filters = '<div id="isotope-filters" class="span12">';
+	$filters = '<div id="isotope-filters">';
 	$filters .= '<a class="btn selected" href="#" data-filter="*">All</a> ';
 
 	foreach($skills as $skill) {
@@ -33,7 +36,7 @@ $skills = get_terms('skill');
 
 	$filters .= '</div>';
 
-	// get the posts under the category
+	// get all the project post types
 	$args = array(
 		'post_type' => 'project',
 		'posts_per_page' => -1,
@@ -44,17 +47,11 @@ $skills = get_terms('skill');
 
 	// go forward?
 	if ($items->have_posts()) :
+		// outpur the filter buttons
+		echo $filters;
 	?> 
 	
-	<div class="row">
-		<?php 
-		echo $filters;
-		?> 
-		<div class="clearfix"></div>
-		<br />
-	</div> <!-- end .row -->
-	
-	<div id="isotope-portfolio" class="thumbnails">
+	<div id="isotope-items" class="thumbnails">
 		<?php
 		// run through the items
 		while ($items->have_posts()) :
@@ -96,54 +93,54 @@ $skills = get_terms('skill');
 		endwhile;
 		?> 
 		<script type="text/javascript">
-		$(window).load(function() {
-			// Shadowbox
-			Shadowbox.init(
-				{
-					skipSetup : true
-				}
-			);
-
-			Shadowbox.setup(
-				"a.shadowbox", 
-				{
-					'gallery' : 'Images',
-					'continuous' : true
-				}
-			);
-
-			// Isotope
-			var $container = $('#isotope-portfolio');
-			$container.isotope();
-
-			$('#isotope-filters a').click(function(){
-			 	var selector = $(this).attr('data-filter');
-			 	$container.isotope({ filter: selector });
-
-				// add class "selected" to filter button
-				if (!$(this).hasClass('selected')) {
-					$('#isotope-filters a').removeClass('selected');
-					$(this).addClass('selected');
-				};
-
-				var gallery = selector + ' a.shadowbox';
+			$(document).ready(function() {
+				// Shadowbox
+				Shadowbox.init(
+					{
+						skipSetup : true
+					}
+				);
 
 				Shadowbox.setup(
-					gallery,
+					"a.shadowbox", 
 					{
-						'gallery' : selector,
+						'gallery' : 'Images',
 						'continuous' : true
 					}
 				);
-			 	return false;
+
+				// Isotope
+				var $container = $('#isotope-items');
+				$container.isotope();
+
+				$('#isotope-filters a').click(function(){
+				 	var selector = $(this).attr('data-filter');
+				 	$container.isotope({ filter: selector });
+
+					// add class "selected" to filter button
+					if (!$(this).hasClass('selected')) {
+						$('#isotope-filters a').removeClass('selected');
+						$(this).addClass('selected');
+					};
+
+					var gallery = selector + ' a.shadowbox';
+
+					Shadowbox.setup(
+						gallery,
+						{
+							'gallery' : selector,
+							'continuous' : true
+						}
+					);
+				 	return false;
+				});
 			});
-		});
 		</script>
-	</div> <!-- end #isotope-portfolio -->
+	</div> <!-- end #isotope-items -->
 	<?php
 	endif; // end if items have posts
-	?>
-</div> <!-- end #portfolio -->
+	?> 
+</div> <!-- end #isotope-portfolio -->
 <?php
 get_footer();
 ?>
