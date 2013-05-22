@@ -21,6 +21,10 @@ body {
 	margin-bottom: 0;
 }
 
+body.admin-bar .navbar-fixed-top {
+	top : 28px;
+}
+
 body .navbar .brand {
 	float : right;
 }
@@ -188,14 +192,21 @@ body .navbar .brand {
 #isotope-items {
 	margin-top : 20px;
 }
+
+.isotope-item {
+	margin-bottom : 15px;
+}
+
 .isotope-item .caption {
 	margin-top : 5px;
+	background : rgba(10, 10, 10, .7);
 	border-top : 1px dotted #E9E9E9;
 	font-size : 1.3em;
 }
 
 .isotope-item .caption a {
 	display : block;
+	color : #fff;
 }
 
 /*
@@ -241,7 +252,7 @@ body .navbar .brand {
 /************************************************
 * Responsive - In Progress
 ************************************************/
-/*@media (min-width : 1200px) {
+@media (min-width : 1200px) {
 	.side-bar-nav {
 		width : 240px;
 	}
@@ -257,14 +268,3 @@ body .navbar .brand {
 	}
 }
 
-@media (max-width: 767px) {
-	body > .navbar .brand {
-		float : left;
-	}
-	
-	.side-bar-nav {
-		position : relative;
-		top : 0 !important;
-		width : 100%;
-	}
-}*/
