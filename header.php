@@ -24,7 +24,7 @@
 	</head>
 	<body <?php body_class(); ?>>
 			
-		<div class="navbar navbar-fixed-top navbar-inverse">
+		<div class="navbar navbar-fixed-top">
 			<div class="navbar-inner">
 				<div class="container">
 					<button class="btn btn-navbar collapsed" data-target=".nav-collapse" data-toggle="collapse" type="button">
