@@ -16,11 +16,11 @@
  * @access public
  * @return void
  */
-function echotheme_add_shortcode_button() {
+function ewd_bootpress_add_shortcode_button() {
 	if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages') ) return;
 	if ( get_user_option('rich_editing') == 'true') :
-		add_filter('mce_external_plugins', 'echotheme_add_shortcode_tinymce_plugin');
-		add_filter('mce_buttons', 'echotheme_register_shortcode_button');
+		add_filter('mce_external_plugins', 'ewd_bootpress_add_shortcode_tinymce_plugin');
+		add_filter('mce_buttons', 'ewd_bootpress_register_shortcode_button');
 	endif;
 }
 
@@ -31,8 +31,8 @@ function echotheme_add_shortcode_button() {
  * @param mixed $buttons
  * @return array
  */
-function echotheme_register_shortcode_button($buttons) {
-	array_push($buttons, "|", "echotheme_shortcodes_button");
+function ewd_bootpress_register_shortcode_button($buttons) {
+	array_push($buttons, "|", "ewd_bootpress_shortcodes_button");
 	return $buttons;
 }
 
@@ -43,7 +43,7 @@ function echotheme_register_shortcode_button($buttons) {
  * @param mixed $plugin_array
  * @return array
  */
-function echotheme_add_shortcode_tinymce_plugin($plugin_array) {
+function ewd_bootpress_add_shortcode_tinymce_plugin($plugin_array) {
 	global $echotheme;
 	$plugin_array['echothemeShortcodes'] = get_bloginfo('template_url') . '/js/editor_plugin.js';
 	return $plugin_array;
@@ -56,7 +56,7 @@ function echotheme_add_shortcode_tinymce_plugin($plugin_array) {
  * @param mixed $ver
  * @return int
  */
-function echotheme_refresh_mce( $ver ) {
+function ewd_bootpress_refresh_mce( $ver ) {
 	$ver += 3;
 	return $ver;
 }
@@ -64,11 +64,11 @@ function echotheme_refresh_mce( $ver ) {
 /**
  * Shortcode buttons
  *
- * @see echotheme_add_shortcode_button()
- * @see echotheme_refresh_mce()
+ * @see ewd_bootpress_add_shortcode_button()
+ * @see ewd_bootpress_refresh_mce()
  */
-add_action( 'init', 'echotheme_add_shortcode_button' );
-add_filter( 'tiny_mce_version', 'echotheme_refresh_mce' );
+add_action( 'init', 'ewd_bootpress_add_shortcode_button' );
+add_filter( 'tiny_mce_version', 'ewd_bootpress_refresh_mce' );
 
 /**
  * Shortcodes
@@ -82,106 +82,133 @@ add_shortcode( 'absurl', 'absurl_shortcode_func' );
 //////////////////////////////////////////////////////////////
 // Carousel Shortcode
 /////////////////////////////////////////////////////////////
-function echotheme_shortcode_carousel( $atts ){
+function ewd_bootpress_shortcode_carousel( $atts ){
 	get_template_part('part', 'carousel-gallery');
 }
-add_shortcode( 'carousel', 'echotheme_shortcode_carousel' );
+add_shortcode( 'carousel', 'ewd_bootpress_shortcode_carousel' );
 
 //////////////////////////////////////////////////////////////
 // Hero Shortcode
 /////////////////////////////////////////////////////////////
-function echotheme_shortcode_hero($atts, $content = null)
+function ewd_bootpress_shortcode_hero($atts, $content = null)
 {
 	return '<div class="hero-unit">' . do_shortcode($content) . '</div>';
 }
 
-add_shortcode( 'hero', 'echotheme_shortcode_hero' );
+add_shortcode( 'hero', 'ewd_bootpress_shortcode_hero' );
+
+//////////////////////////////////////////////////////////////
+// Page Header Shortcode
+/////////////////////////////////////////////////////////////
+function ewd_bootpress_shortcode_page_header($atts, $content = null)
+{
+	return '<div class="page-header">' . do_shortcode($content) . '</div>';
+}
+
+add_shortcode( 'header', 'ewd_bootpress_shortcode_page_header' );
+
+//////////////////////////////////////////////////////////////
+// "Small" Shortcode
+/////////////////////////////////////////////////////////////
+function ewd_bootpress_shortcode_small($atts, $content = null)
+{
+	return '<small>' . do_shortcode($content) . '</small>';
+}
+
+add_shortcode( 'small', 'ewd_bootpress_shortcode_small' );
+
+//////////////////////////////////////////////////////////////
+// Type Emphasis Shortcode
+/////////////////////////////////////////////////////////////
+function ewd_bootpress_shortcode_type_emphasis($atts, $content = null)
+{
+	extract(shortcode_atts(array(
+		'class' => 'text-info'
+	), $atts));
+	return '<p class="' . $class . '">' . do_shortcode($content) . '</p>';
+}
+
+add_shortcode( 'emph', 'ewd_bootpress_shortcode_type_emphasis' );
 
 //////////////////////////////////////////////////////////////
 // Lead Shortcode
 /////////////////////////////////////////////////////////////
-function echotheme_shortcode_lead($atts, $content = null)
+function ewd_bootpress_shortcode_lead($atts, $content = null)
 {
 	return '<p class="lead">' . do_shortcode($content) . '</p>';
 }
 
-add_shortcode( 'lead', 'echotheme_shortcode_lead' );
+add_shortcode( 'lead', 'ewd_bootpress_shortcode_lead' );
 
 //////////////////////////////////////////////////////////////
-// Button Shortcode
+// Well Shortcode
 /////////////////////////////////////////////////////////////
-
-function echotheme_button($a) {
-	extract(shortcode_atts(array(
-		'label' 	=> 'Button Text',
-		'id' 	=> '1',
-		'url'	=> '',
-		'target' => '_parent',		
-		'size'	=> '',
-		'ptag'	=> false
-	), $a));
-	
-	$link = $url ? $url : get_permalink($id);	
-	
-	if($ptag) :
-		return  wpautop('<a href="'.$link.'" target="'.$target.'" class="button '.$size.'">'.$label.'</a>');
-	else :
-		return '<a href="'.$link.'" target="'.$target.'" class="button '.$size.'">'.$label.'</a>';
-	endif;
-	
+function ewd_bootpress_shortcode_well($atts, $content = null)
+{
+	return '<div class="well">' . do_shortcode($content) . '</div>';
 }
-add_shortcode('button', 'echotheme_button');
+
+add_shortcode( 'well', 'ewd_bootpress_shortcode_well' );
 
 //////////////////////////////////////////////////////////////
 // Column Shortcodes
 /////////////////////////////////////////////////////////////
 
-function echotheme_one_third_first( $atts, $content = null ) {
-   return '<div class="one-third column alpha">' . wpautop(do_shortcode($content)) . '</div>';
-}
-add_shortcode('one_third_first', 'echotheme_one_third_first');
-
-function echotheme_one_third( $atts, $content = null ) {
-   return '<div class="one-third column">' . wpautop(do_shortcode($content)) . '</div>';
-}
-add_shortcode('one_third', 'echotheme_one_third');
-
-function echotheme_one_third_last( $atts, $content = null ) {
-   return '<div class="one-third column omega">' . wpautop(do_shortcode($content)) . '</div><div class="clear"></div>';
-}
-add_shortcode('one_third_last', 'echotheme_one_third_last');
-
-function echotheme_two_third( $atts, $content = null ) {
-   return '<div class="two-thirds column alpha">' . wpautop(do_shortcode($content)) . '</div>';
-}
-add_shortcode('two_thirds', 'echotheme_two_third');
-
-function echotheme_two_third_last( $atts, $content = null ) {
-   return '<div class="two-thirds column omega">' . wpautop(do_shortcode($content)) . '</div><div class="clear"></div>';
-}
-add_shortcode('two_thirds_last', 'echotheme_two_third_last');
-
-function echotheme_one_half( $atts, $content = null ) {
-   return '<div class="eight columns alpha">' . wpautop(do_shortcode($content)) . '</div>';
-}
-add_shortcode('one_half', 'echotheme_one_half');
-
-function echotheme_one_half_last( $atts, $content = null ) {
-   return '<div class="eight columns omega">' . wpautop(do_shortcode($content)) . '</div><div class="clear"></div>';
-}
-add_shortcode('one_half_last', 'echotheme_one_half_last');
-
-function echotheme_clear($atts, $content = null)
+function ewd_bootpress_shortcode_column_row($atts, $content = null)
 {
-	return '<br class="clear" />';
+	return '<div class="row">' . do_shortcode($content) . '</div>';
 }
-add_shortcode('clear', 'echotheme_clear');
 
-function echotheme_hr($atts, $content = null)
+add_shortcode('row', 'ewd_bootpress_shortcode_column_row');
+
+function ewd_bootpress_shortcode_col( $atts, $content = null ) {
+	$arr = shortcode_atts(array(
+		'span' 		=> false,
+		'offset' 	=> false,
+		'push' 		=> false,
+		'pull' 		=> false
+	), $atts);
+	
+	$class = '';
+	
+	if ($arr['span']) {
+		$class  .= 'span' . $arr['span'];
+	}
+	
+	if ($arr['offset']) {
+		$class  .= ' offset' . $arr['offset'];
+	}
+	
+	if ($arr['push']) {
+		$class  .= ' push' . $arr['push'];
+	}
+	
+	if ($arr['pull']) {
+		$class  .= ' pull' . $arr['pull'];
+	}
+	
+	return '<div class="' . $class . '">' . do_shortcode($content) . '</div>';
+}
+add_shortcode('col', 'ewd_bootpress_shortcode_col');
+
+function ewd_bootpress_shortcode_thumbnail($atts, $content)
+{
+	return '<div class="thumbnail">' . do_shortcode($content) . '</div>';
+}
+
+add_shortcode('thumbnail', 'ewd_bootpress_shortcode_thumbnail');
+
+function ewd_bootpress_clear($atts, $content = null)
+{
+	return '<div class="clearfix"></div>';
+}
+add_shortcode('clear', 'ewd_bootpress_clear');
+
+function ewd_bootpress_hr($atts, $content = null)
 {
 	return '<hr class="" />';
 }
-add_shortcode('hr', 'echotheme_hr');
+add_shortcode('hr', 'ewd_bootpress_hr');
 
 
 //////////////////////////////////////////////////////////////
@@ -190,7 +217,7 @@ add_shortcode('hr', 'echotheme_hr');
 
 // Shortcode: tab
 // Usage: [tab title="title 1"]Your content goes here...[/tab]
-function echotheme_tab_func( $atts, $content = null ) {
+function ewd_bootpress_tab_func( $atts, $content = null ) {
     extract(shortcode_atts(array(
 	    'title'	=> '',
     ), $atts));
@@ -198,7 +225,7 @@ function echotheme_tab_func( $atts, $content = null ) {
     $tabs[] = array('title' => $title, 'content' => trim(wpautop(do_shortcode($content))));
     return $tabs;
 }
-add_shortcode('tab', 'echotheme_tab_func');
+add_shortcode('tab', 'ewd_bootpress_tab_func');
 
 /* Shortcode: tabs
  * Usage:   [tabs]
@@ -206,7 +233,7 @@ add_shortcode('tab', 'echotheme_tab_func');
  * 		[tab title="title 2"]Your content goes here...[/tab]
  * 	    [/tabs]
  */
-function echotheme_tabs_func( $atts, $content = null ) {
+function ewd_bootpress_tabs_func( $atts, $content = null ) {
     global $tabs;
     $tabs = array(); // clear the array
 	do_shortcode($content); // execute the '[tab]' shortcode first to get the title and content
@@ -232,11 +259,11 @@ function echotheme_tabs_func( $atts, $content = null ) {
 	
     return $tabs_output;
 }
-add_shortcode('tabs', 'echotheme_tabs_func');
+add_shortcode('tabs', 'ewd_bootpress_tabs_func');
 
 // Shortcode: toggle_content
 // Usage: [toggle_content title="Title"]Your content goes here...[/toggle_content]
-function echotheme_toggle( $atts, $content = null ) {
+function ewd_bootpress_toggle( $atts, $content = null ) {
     extract(shortcode_atts(array(
 	    'title'      => '',
     ), $atts));
@@ -246,13 +273,13 @@ function echotheme_toggle( $atts, $content = null ) {
     
 	return $html;
 }
-add_shortcode('toggle_content', 'echotheme_toggle');
+add_shortcode('toggle_content', 'ewd_bootpress_toggle');
 
 /*//////////////////////////////////////////////////////////
 // Message boxes and Block Quotes
 //////////////////////////////////////////////////////////*/
 
-function echotheme_message_box($atts, $content = null)
+function ewd_bootpress_message_box($atts, $content = null)
 {
 	extract(shortcode_atts(array(
 		'type' => 'plain'
@@ -260,4 +287,4 @@ function echotheme_message_box($atts, $content = null)
 	
 	return '<div class="box '.$type.'">'.wpautop($content).'</div>';
 }
-add_shortcode('box', 'echotheme_message_box');
+add_shortcode('box', 'ewd_bootpress_message_box');

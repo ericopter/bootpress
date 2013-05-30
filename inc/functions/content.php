@@ -282,7 +282,12 @@ function echotheme_titlebar()
 {
 	// display title bar if we have a title
 	$titleBar = of_get_option('site-title-bar');
-	$title = is_front_page() ? get_bloginfo('description') /* get_the_title()*/ : wp_title(null, false);
+	if (is_page()) {
+		$title = get_the_title();
+	} else {
+		$title = is_front_page() ? get_bloginfo('description') /* get_the_title()*/ : wp_title(null, false);
+	}
+	
 	if ($titleBar && $title): 
 	?> 
 	<div id="title-bar">
