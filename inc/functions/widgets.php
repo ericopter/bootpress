@@ -27,7 +27,7 @@ function echotheme_sidebars_init() {
 		'name' => 'Header Sidebar',
 		'id' => 'sidebar_header',
 		'description' => __('This is the widget area for the header. This will be displayed to the right of the site title or logo.', 'echotheme'),
-		'before_widget' => '<div id="%1$s" class="%2$s widget pull-right">',
+		'before_widget' => '<div id="%1$s" class="%2$s widget pull-right well">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
 		'after_title' => '</h3>'

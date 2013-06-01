@@ -70,10 +70,9 @@ function ewd_bootpress_refresh_mce( $ver ) {
 add_action( 'init', 'ewd_bootpress_add_shortcode_button' );
 add_filter( 'tiny_mce_version', 'ewd_bootpress_refresh_mce' );
 
-/**
- * Shortcodes
- * [foobar]
- */
+//////////////////////////////////////////////////////////////
+// Theme Absolute URL Shortcode
+/////////////////////////////////////////////////////////////
 function absurl_shortcode_func( $atts ){
     return ABSURL;
 }
@@ -88,7 +87,7 @@ function ewd_bootpress_shortcode_carousel( $atts ){
 add_shortcode( 'carousel', 'ewd_bootpress_shortcode_carousel' );
 
 //////////////////////////////////////////////////////////////
-// Hero Shortcode
+// Hero Unit Shortcode
 /////////////////////////////////////////////////////////////
 function ewd_bootpress_shortcode_hero($atts, $content = null)
 {
@@ -137,7 +136,6 @@ function ewd_bootpress_shortcode_lead($atts, $content = null)
 {
 	return '<p class="lead">' . do_shortcode($content) . '</p>';
 }
-
 add_shortcode( 'lead', 'ewd_bootpress_shortcode_lead' );
 
 //////////////////////////////////////////////////////////////
@@ -147,20 +145,20 @@ function ewd_bootpress_shortcode_well($atts, $content = null)
 {
 	return '<div class="well">' . do_shortcode($content) . '</div>';
 }
-
 add_shortcode( 'well', 'ewd_bootpress_shortcode_well' );
 
 //////////////////////////////////////////////////////////////
-// Column Shortcodes
+// Row Shortcode
 /////////////////////////////////////////////////////////////
-
 function ewd_bootpress_shortcode_column_row($atts, $content = null)
 {
 	return '<div class="row">' . do_shortcode($content) . '</div>';
 }
-
 add_shortcode('row', 'ewd_bootpress_shortcode_column_row');
 
+//////////////////////////////////////////////////////////////
+// Grid Column Shortcode
+/////////////////////////////////////////////////////////////
 function ewd_bootpress_shortcode_col( $atts, $content = null ) {
 	$arr = shortcode_atts(array(
 		'span' 		=> false,
@@ -191,24 +189,84 @@ function ewd_bootpress_shortcode_col( $atts, $content = null ) {
 }
 add_shortcode('col', 'ewd_bootpress_shortcode_col');
 
+//////////////////////////////////////////////////////////////
+// Thumbnail Section Shortcode
+/////////////////////////////////////////////////////////////
+function ewd_bootpress_shortcode_thumbnails($atts, $content)
+{
+	return '<div class="thumbnails">' . do_shortcode($content) . '</div>';
+}
+add_shortcode('thumbnails', 'ewd_bootpress_shortcode_thumbnails');
+
+//////////////////////////////////////////////////////////////
+// Thumbnail Shortcode
+/////////////////////////////////////////////////////////////
 function ewd_bootpress_shortcode_thumbnail($atts, $content)
 {
 	return '<div class="thumbnail">' . do_shortcode($content) . '</div>';
 }
-
 add_shortcode('thumbnail', 'ewd_bootpress_shortcode_thumbnail');
 
+//////////////////////////////////////////////////////////////
+// Thumbnail Caption Shortcode
+/////////////////////////////////////////////////////////////
+function ewd_bootpress_shortcode_caption($atts, $content)
+{
+	return '<div class="caption">' . do_shortcode($content) . '</div>';
+}
+add_shortcode('caption', 'ewd_bootpress_shortcode_caption');
+
+//////////////////////////////////////////////////////////////
+// Clear Shortcode
+/////////////////////////////////////////////////////////////
 function ewd_bootpress_clear($atts, $content = null)
 {
 	return '<div class="clearfix"></div>';
 }
 add_shortcode('clear', 'ewd_bootpress_clear');
 
+//////////////////////////////////////////////////////////////
+// Horizontal Rule Shortcode
+/////////////////////////////////////////////////////////////
 function ewd_bootpress_hr($atts, $content = null)
 {
 	return '<hr class="" />';
 }
 add_shortcode('hr', 'ewd_bootpress_hr');
+
+//////////////////////////////////////////////////////////////
+// Button Shortcode
+/////////////////////////////////////////////////////////////
+function ewd_bootpress_shortcode_button($atts, $content)
+{
+	extract(shortcode_atts(array(
+		'style' => null,
+		'label' => 'Learn More',
+		'url' => null,
+		'size' => null,
+		'extra' => null,
+		'disabled' => null,
+		'type' => 'a'
+	), $atts));
+	
+	$class = 'btn';
+	
+	if ($style) {
+		$class .= ' btn-' . $style;
+	}
+	
+	if ($size) {
+		$class .= ' btn-' . $size;
+	}
+	
+	if ($extra) {
+		$class .= ' ' . $extra;
+	}
+	
+	
+	return '<' . $type . ' class="' . strtolower($class) . '" href="' . $url . '"> '. $label . '</' . $type . '>';
+}
+add_shortcode('button', 'ewd_bootpress_shortcode_button');
 
 
 //////////////////////////////////////////////////////////////

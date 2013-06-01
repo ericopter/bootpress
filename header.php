@@ -70,7 +70,9 @@
 							</a>
 						</h1>
 						<p class="lead">
-							<?php bloginfo('description') ?>
+							<a href="<?php bloginfo('url'); ?>">
+								<?php bloginfo('description') ?>
+							</a>
 						</p>
 					</div> <!-- end .span6 -->
 

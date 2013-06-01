@@ -35,31 +35,10 @@ body .navbar .brand {
 */
 #site-header {
 	position : relative;
-	padding : 25px 0;
-/*	background : #2F3D78;*/
-/*	background : linear-gradient(45deg, #020031 0%, #424E91 100%) repeat scroll 0 0 transparent;*/
-/*	background : -webkit-gradient(linear, left bottom, right top, from(#020031), to(#424E91));*/
+	padding : 10px 0;
 	background : url('../img/bg-two.png') repeat;
 	color : #4B4B4B;
-/*	text-shadow : 0 1px 3px rgba(0, 0, 0, 0.4), 0 0 30px rgba(0, 0, 0, 0.075);*/
 }
-
-/*#site-header:after {
-	display : block;
-	position : absolute;
-	top : 0;
-	right : 0;
-	bottom : 0;
-	left : 0;
-	background : url('../img/stars.png') repeat top center;
-	content : '';
-	opacity : 0.3;
-}*/
-
-/*#site-header .container {
-	position : relative;
-	z-index : 2;
-}*/
 
 #site-branding h1 a {
 	display : block;
@@ -75,15 +54,18 @@ body .navbar .brand {
 }
 
 #site-branding p {
-/*	position : relative;*/
-/*	top : -15px;*/
 	margin : -15px 0 0;
 	font-weight : 400;
 	text-align : right;
 }
 
+#site-branding p a {
+	color : #4B4B4B;
+	text-decoration : none;
+}
+
 #site-header .widget {
-/*	margin : 20px 0 0;*/
+	margin : 20px 0 0;
 }
 
 #site-header .textwidget {
@@ -129,6 +111,7 @@ body .navbar .brand {
 	outline : none;
 }
 
+
 /*
 	Title Bar
 */
@@ -143,7 +126,7 @@ body .navbar .brand {
 	Content General
 */
 #content-wrapper {
-	min-height : 500px;
+/*	min-height : 500px;*/
 	padding : 30px 0 50px;
 	border-top : 1px solid #8F8F8F;
 	border-bottom : 1px solid #B1B1B1;
@@ -260,6 +243,13 @@ body .navbar .brand {
 
 .side-bar-nav > li:last-child > a {
 	border-radius : 0 0 6px 6px;
+}
+
+/*
+	Page-Subpages
+*/
+#subpages .thumbnail .caption {
+	text-align : center;
 }
 
 
