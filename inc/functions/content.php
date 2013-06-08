@@ -117,6 +117,16 @@ function remove_thumbnail_height($html) {
 }
 
 /**
+ * remove_thumbnail_width()
+ * 
+ * Remove image width property to allow image to enlarge to container
+ */
+function remove_thumbnail_width($html) {
+    $html = preg_replace('/width=\"\d*\"\s/', "", $html);
+    return $html;
+}
+
+/**
  * set_isotope_image_width()
  * 
  * Replaces image width value based on theme width option

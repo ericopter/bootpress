@@ -33,6 +33,26 @@ function echotheme_sidebars_init() {
 		'after_title' => '</h3>'
 	));
 	
+	register_sidebar(array(
+		'name'			=> 'Footer Left',
+		'id'			=> 'footer_left',
+		'description'	=> __('Footer left half area', 'echotheme'),
+		'before_widget'	=> '<div id="%1$s" class="%2$s widget">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3>',
+		'after_title'	=> '</h3>'
+	));
+	
+	register_sidebar(array(
+		'name'			=> 'Footer Right',
+		'id'			=> 'footer_right',
+		'description'	=> __('Footer right half area', 'echotheme'),
+		'before_widget'	=> '<div id="%1$s" class="%2$s widget text-right">',
+		'after_widget'	=> '</div>',
+		'before_title'	=> '<h3>',
+		'after_title'	=> '</h3>'
+	));
+	
 	// register_sidebar(array(
 	// 	'name' => 'Default Sidebar',
 	// 	'id' => 'sidebar',

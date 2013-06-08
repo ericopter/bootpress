@@ -219,20 +219,29 @@ add_shortcode('caption', 'ewd_bootpress_shortcode_caption');
 //////////////////////////////////////////////////////////////
 // Clear Shortcode
 /////////////////////////////////////////////////////////////
-function ewd_bootpress_clear($atts, $content = null)
+function ewd_bootpress_shortcode_clear($atts, $content = null)
 {
 	return '<div class="clearfix"></div>';
 }
-add_shortcode('clear', 'ewd_bootpress_clear');
+add_shortcode('clear', 'ewd_bootpress_shortcode_clear');
 
 //////////////////////////////////////////////////////////////
 // Horizontal Rule Shortcode
 /////////////////////////////////////////////////////////////
-function ewd_bootpress_hr($atts, $content = null)
+function ewd_bootpress_shortcode_hr($atts, $content = null)
 {
 	return '<hr class="" />';
 }
-add_shortcode('hr', 'ewd_bootpress_hr');
+add_shortcode('hr', 'ewd_bootpress_shortcode_hr');
+
+//////////////////////////////////////////////////////////////
+// Address Shortcode
+/////////////////////////////////////////////////////////////
+function ewd_bootpress_shortcode_address($atts, $content = null)
+{
+	return '<address>' . do_shortcode($content) . '</address>';
+}
+add_shortcode('address', 'ewd_bootpress_shortcode_address');
 
 //////////////////////////////////////////////////////////////
 // Button Shortcode
