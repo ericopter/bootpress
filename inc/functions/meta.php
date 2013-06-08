@@ -85,7 +85,7 @@ function echotheme_meta_tags()
  */
 function echotheme_analytics()
 {
-	if (function_exists('of_get_option') && $analytics = of_get_option('google-analytics')) {
+	if (function_exists('of_get_option') && $analytics = of_get_option('site-analytics')) {
 ?>
 <script type="text/javascript"><?php echo $analytics ?></script>
 <?php

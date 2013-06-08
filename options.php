@@ -116,6 +116,13 @@ function optionsframework_options() {
 		'options' => $optionsArr['site']['sidebar-position']
 	);
 	
+	$options[] = array(
+		'name' 	=> __('Google Analytics', 'echotheme'),
+		'desc'	=> __('Enter your Google Analytics code here', 'echotheme'),
+		'type' 	=> 'textarea',
+		'id' 	=> 'site-analytics'
+	);
+	
 	/******************************************************
 	* Homepage
 	******************************************************/
